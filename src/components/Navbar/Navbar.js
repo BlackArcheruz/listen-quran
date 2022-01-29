@@ -109,9 +109,7 @@ function Navbar (){
             
         }
         @media (max-width: 420px){
-            img{
-            margin-right: 0;
-            }
+            padding: 1rem .3rem;
         }
     `
     return(
