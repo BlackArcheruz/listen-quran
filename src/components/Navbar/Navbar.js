@@ -108,6 +108,11 @@ function Navbar (){
             }
             
         }
+        @media (max-width: 420px){
+            img{
+            margin-right: 0;
+            }
+        }
     `
     return(
         <>
