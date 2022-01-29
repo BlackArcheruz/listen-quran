@@ -11,7 +11,7 @@ function Navbar (){
           position: 'absolute',
           width: '36px',
           height: '30px',
-          right: '36px',
+          right: '20px',
           top: '25px'
         },
         bmBurgerBars: {
@@ -109,7 +109,7 @@ function Navbar (){
             
         }
         @media (max-width: 420px){
-            padding: 1rem .3rem;
+            padding: 1rem .4rem;
         }
     `
     return(
