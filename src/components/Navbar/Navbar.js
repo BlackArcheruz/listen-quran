@@ -12,7 +12,7 @@ function Navbar (){
           width: '36px',
           height: '30px',
           right: '36px',
-          top: '30px'
+          top: '25px'
         },
         bmBurgerBars: {
           background: 'rgb(59 130 246)'

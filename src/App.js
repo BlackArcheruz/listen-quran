@@ -4,6 +4,7 @@ import {BrowserRouter as Router,Switch,Route} from 'react-router-dom'
 import About from './components/About/About';
 import Destination from './components/Destination/Destination';
 import QuranPage from './components/QuranPage/QuranPage';
+import NotFound from './components/NotFound/NotFound';
 
 function App() {
   const [data,setData] = useState('')
@@ -28,6 +29,9 @@ function App() {
         </Route>
         <Route exact path="/surah/:id">
           <QuranPage/>
+        </Route>
+        <Route exact path="*">
+          <NotFound/>
         </Route>
       </Switch>
     </Router>
