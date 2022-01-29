@@ -10,7 +10,7 @@ function App() {
   const [data,setData] = useState('')
   useEffect(()=>{
 
-    fetch('http://api.alquran.cloud/v1/quran/ar.alafasy')
+    fetch('https://api.alquran.cloud/v1/quran/ar.alafasy')
       .then(res=>res.json())
       .then(resp=>setData(resp))
 },[])
