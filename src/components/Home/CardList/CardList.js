@@ -9,11 +9,11 @@ const CardGrid = styled.div`
     grid-template-rows: repeat(4, 1fr);
     grid-column-gap: 1rem;
     grid-row-gap: 1rem; 
-    @media (max-width:320px){
+    @media (max-width:430px){
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: repeat(1, 1fr);  
     }
-    @media (min-width:321px) and (max-width:640px){
+    @media (min-width:431px) and (max-width:640px){
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, 1fr);
     }
