@@ -3,8 +3,9 @@ import { useParams } from 'react-router-dom'
 import { Fragment, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import AudioPlayer from 'react-h5-audio-player';
-
-
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons';
 
 function QuranPage(){
     const LoadingMessage = styled.p`
@@ -65,19 +66,70 @@ function QuranPage(){
         }
         .sura-arab{
             font-weight:400;
+            color:rgb(59 130 256);
         }
+
     `
 
+    const BtnPrevious = styled.div`
+    position:fixed;
+    bottom: 22px;
+    left: 46%;
+    
+    a{
+        z-index:2;
+    }
+    @media (min-width:750px) and (max-width: 1000px){
+        left: 45%;
+    }
+    @media (min-width:500px) and (max-width: 649px){
+        left: 42%;
+    }
+    @media (min-width:300px) and (max-width: 499px){
+        left: 38%;
+    }
+    @media (min-width:200px) and (max-width: 299px){
+        right: 36%;
+    }
+    `
+    const BtnNext = styled.div`
+    position:fixed;
+    bottom: 22px;
+    right: 46%;
+    
+    a{
+        z-index:2;
+    }
+    @media (min-width:750px) and (max-width: 1000px){
+        right: 45%;
+    }
+    @media (min-width:650px) and (max-width: 749px){
+        right: 44%;
+    }
+    @media (min-width:650px) and (max-width: 749px){
+        right: 44%;
+    }
+    @media (min-width:500px) and (max-width: 649px){
+        right: 42%;
+    }
+    @media (min-width:300px) and (max-width: 499px){
+        right: 38%;
+    }
+    @media (min-width:200px) and (max-width: 299px){
+        right: 36%;
+    }
+    `
 
     const {id} = useParams();
-    const [data,setData] = useState('')
+    const [data,setData] = useState('');
+    let pageLink = Number(id)
 
     useEffect(()=>{
        fetch(`https://api.alquran.cloud/v1/surah/${id}/editions/ar.alafasy,uz.sodik`)
             .then(res=>res.json())
             .then(resp=>setData(resp))
             // eslint-disable-next-line
-    },[])
+    },[id])
     const arr = data?.data?.map(oyat=>oyat.ayahs.map(oyat=>oyat));
     const surah = arr !== undefined ? arr[0]?.map(surah=>surah): null;
     const translation = arr !== undefined ? arr[1]?.map(surah=>surah): null;
@@ -87,6 +139,21 @@ function QuranPage(){
             'translate': translation[index]
         }
     })
+
+    let PreviousBtn;
+    // eslint-disable-next-line
+    if(id == 1){
+        PreviousBtn = null;
+    }else{
+        PreviousBtn = <BtnPrevious><Link to={`/surah/${--pageLink}`}> <FontAwesomeIcon icon={faStepBackward} size="lg" color='#868686'/></Link></BtnPrevious>
+    }
+    let NextBtn;
+    // eslint-disable-next-line
+    if(id == 114){
+        NextBtn = null;
+    }else{
+        NextBtn = <BtnNext><Link to={`/surah/${pageLink === id ? pageLink + 1 : pageLink + 2}`}> <FontAwesomeIcon icon={faStepForward} size="lg" color='#868686'/></Link></BtnNext>
+    }
     return(
         <>
         <Navbar/>
@@ -113,7 +180,8 @@ function QuranPage(){
         </Surah> : <LoadingMessage>Yuklanmoqda...</LoadingMessage>}
         </ContainerSurah>
         ))}
-        
+        {PreviousBtn}
+        {NextBtn}
         </>
     )
 }

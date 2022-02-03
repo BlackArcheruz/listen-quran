@@ -5,7 +5,7 @@ import { slide as Menu } from 'react-burger-menu'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 
-function Navbar (){
+function Navbar (props){
     var styles = {
         bmBurgerButton: {
           position: 'absolute',
@@ -125,6 +125,7 @@ function Navbar (){
                 <li>
                     <Link to="/about">Biz haqimizda</Link>
                     <Link to="/destination">Maqsadimiz</Link>
+                    {/* <button onClick={props.toggleTheme}>Mavzu</button> */}
                 </li>
             </ul>
         </StyledNav>
