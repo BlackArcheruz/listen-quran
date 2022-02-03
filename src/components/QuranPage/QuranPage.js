@@ -142,14 +142,14 @@ function QuranPage(){
 
     let PreviousBtn;
     // eslint-disable-next-line
-    if(id == 1 && data == ''){
+    if(id == 1 ){
         PreviousBtn = null;
     }else{
         PreviousBtn = <BtnPrevious><Link to={`/surah/${--pageLink}`}> <FontAwesomeIcon icon={faStepBackward} size="lg" color='#868686'/></Link></BtnPrevious>
     }
     let NextBtn;
     // eslint-disable-next-line
-    if(id == 114 && data == ''){
+    if(id == 114){
         NextBtn = null;
     }else{
         NextBtn = <BtnNext><Link to={`/surah/${pageLink === id ? pageLink + 1 : pageLink + 2}`}> <FontAwesomeIcon icon={faStepForward} size="lg" color='#868686'/></Link></BtnNext>
@@ -180,8 +180,8 @@ function QuranPage(){
         </Surah> : <LoadingMessage>Yuklanmoqda...</LoadingMessage>}
         </ContainerSurah>
         ))}
-        {PreviousBtn}
-        {NextBtn}
+        {data !== '' ? PreviousBtn : null}
+        {data !== '' ? NextBtn : null}
         </>
     )
 }
