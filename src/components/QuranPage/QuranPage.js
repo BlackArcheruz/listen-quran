@@ -6,6 +6,7 @@ import AudioPlayer from 'react-h5-audio-player';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios'
 
 function QuranPage(){
     const LoadingMessage = styled.p`
@@ -124,11 +125,13 @@ function QuranPage(){
     const [data,setData] = useState('');
     let pageLink = Number(id)
 
+    const fetchData = async ()=>{
+        let res = await axios.get(`https://api.alquran.cloud/v1/surah/${id}/editions/ar.alafasy,uz.sodik`);
+        setData(res.data)
+    }
     useEffect(()=>{
-       fetch(`https://api.alquran.cloud/v1/surah/${id}/editions/ar.alafasy,uz.sodik`)
-            .then(res=>res.json())
-            .then(resp=>setData(resp))
-            // eslint-disable-next-line
+       fetchData()
+        // eslint-disable-next-line
     },[id])
     const arr = data?.data?.map(oyat=>oyat.ayahs.map(oyat=>oyat));
     const surah = arr !== undefined ? arr[0]?.map(surah=>surah): null;
@@ -152,7 +155,7 @@ function QuranPage(){
     if(id == 114){
         NextBtn = null;
     }else{
-        NextBtn = <BtnNext><Link to={`/surah/${pageLink === id ? pageLink + 1 : pageLink + 2}`}> <FontAwesomeIcon icon={faStepForward} size="lg" color='#868686'/></Link></BtnNext>
+        NextBtn = <BtnNext><Link to={`/surah/${pageLink === data?.data[0].number ? pageLink + 1 : pageLink + 2}`}> <FontAwesomeIcon icon={faStepForward} size="lg" color='#868686'/></Link></BtnNext>
     }
     return(
         <>

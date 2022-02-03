@@ -2,14 +2,16 @@ import Navbar from "../Navbar/Navbar";
 import Showcase from "./Showcase/Showcase";
 import styled from 'styled-components'
 import {useState, useEffect} from 'react'
+import axios from 'axios'
 
 function Home(props){
     const [data,setData] = useState('')
+    const fetchData = async ()=>{
+        let res = await axios.get('https://api.alquran.cloud/v1/quran/ar.alafasy');
+        setData(res.data)
+    }
     useEffect(()=>{
-
-    fetch('https://api.alquran.cloud/v1/quran/ar.alafasy')
-      .then(res=>res.json())
-      .then(resp=>setData(resp))
+        fetchData()
     },[])
     const LoadingMessage = styled.p`
         font-size:32px;
@@ -27,7 +29,6 @@ function Home(props){
             }
         }
     `
-
     return(
         <>
         <Navbar toggleTheme={props.toggleTheme}/>
