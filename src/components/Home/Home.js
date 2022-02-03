@@ -7,7 +7,7 @@ import axios from 'axios'
 function Home(props){
     const [data,setData] = useState('')
     const fetchData = async ()=>{
-        let res = await axios.get('https://api.alquran.cloud/v1/quran/ar.alafasy');
+        let res = await axios.get('https://api.alquran.cloud/v1/quran/uz.sodik');
         setData(res.data)
     }
     useEffect(()=>{
