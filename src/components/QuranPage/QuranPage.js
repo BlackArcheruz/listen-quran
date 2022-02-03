@@ -142,14 +142,14 @@ function QuranPage(){
 
     let PreviousBtn;
     // eslint-disable-next-line
-    if(id == 1){
+    if(id == 1 && data == undefined){
         PreviousBtn = null;
     }else{
         PreviousBtn = <BtnPrevious><Link to={`/surah/${--pageLink}`}> <FontAwesomeIcon icon={faStepBackward} size="lg" color='#868686'/></Link></BtnPrevious>
     }
     let NextBtn;
     // eslint-disable-next-line
-    if(id == 114){
+    if(id == 114 && data == undefined){
         NextBtn = null;
     }else{
         NextBtn = <BtnNext><Link to={`/surah/${pageLink === id ? pageLink + 1 : pageLink + 2}`}> <FontAwesomeIcon icon={faStepForward} size="lg" color='#868686'/></Link></BtnNext>
