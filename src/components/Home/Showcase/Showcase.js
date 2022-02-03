@@ -27,7 +27,7 @@ function Showcase (props){
             <h1>Qurʼon </h1>
             <p>Eshitish uchun suralardan birini tanlang:</p>
             <CardList data={props.data}/>
-            <p>Qori: {props.data?.data?.edition.name}</p>
+            <p>Qori: مشاري العفاسي</p>
             
         </ShowcaseContainer>
     )
