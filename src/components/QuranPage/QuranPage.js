@@ -155,7 +155,7 @@ function QuranPage(){
     if(id == 114){
         NextBtn = null;
     }else{
-        NextBtn = <BtnNext><Link to={`/surah/${pageLink === data?.data[0].number ? pageLink + 1 : pageLink + 2}`}> <FontAwesomeIcon icon={faStepForward} size="lg" color='#868686'/></Link></BtnNext>
+        NextBtn = <BtnNext><Link to={`/surah/${pageLink === (data !== '' ? data?.data[0].number : id) ? pageLink + 1 : pageLink + 2}`}> <FontAwesomeIcon icon={faStepForward} size="lg" color='#868686'/></Link></BtnNext>
     }
     return(
         <>
