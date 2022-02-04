@@ -124,7 +124,7 @@ function Navbar (props){
         <Menu right bubble styles={styles} > 
                 <a id="about" className="menu-item" href="/about">Biz haqimizda</a>
                 <a id="destination" className="menu-item" href="/destination">Maqsadimiz</a>
-                <><button className="menu-item" data-tip="Tez orada ushbu yangilik nima ekanligni bilib olasiz!" style={{display: "block", margin: "1rem 0", fontWeight: "600", fontSize: "1.15em", color: (props.theme === 'dark' ? "#f1f1f1" : "#121620")}}><FontAwesomeIcon icon={faCog} color={props.theme === "dark"? "#f1f1f1": "#121620"}/> Sozlamalar</button> <ReactTooltip effect="solid" type={props.theme ==="dark" ? "light":"dark"}/> </>
+                <><button className="menu-item" data-tip="Tez orada ushbu yangilik nima ekanligni bilib olasiz!" style={{display: "flex",alignItems: "center", margin: "1rem 0", fontWeight: "600", fontSize: "1.15em", color: (props.theme === 'dark' ? "#f1f1f1" : "#121620")}}><FontAwesomeIcon icon={faCog} color={props.theme === "dark"? "#f1f1f1": "#121620"}/> Sozlamalar</button> <ReactTooltip effect="solid" type={props.theme ==="dark" ? "light":"dark"}/> </>
             </Menu>
         <StyledNav>
             <Link to="/" className="logo"><img src={Logo} alt="Logo" width="48"/><h1>Listen-Quran</h1></Link>
