@@ -34,7 +34,7 @@ const CardGrid = styled.div`
 function CardList (props){
     return(
         <CardGrid>
-            {props.data.data.surahs.map(surah=>(
+            {props.data.data.surahs.references.map(surah=>(
                 <Fragment key={surah.number}>
                     <Card data={surah}/>
                 </Fragment>

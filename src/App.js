@@ -7,6 +7,7 @@ import NotFound from './components/NotFound/NotFound';
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme, GlobalStyles } from "./theme";
 import { useState, useEffect } from 'react';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -26,6 +27,7 @@ function App() {
       setTheme("dark");
     }
   }, []);
+
   return (
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
     <>
@@ -33,15 +35,19 @@ function App() {
     <Router>
       <Switch>
        <Route exact path="/">
-         <Home toggleTheme={toggleTheme}/>
+         <Navbar toggleTheme={toggleTheme} theme={theme}/>
+         <Home/>
         </Route>
         <Route exact path="/about">
+        <Navbar toggleTheme={toggleTheme} theme={theme}/>
          <About/>
         </Route>
         <Route exact path="/destination">
+        <Navbar toggleTheme={toggleTheme} theme={theme}/>
          <Destination/>
         </Route>
         <Route exact path="/surah/:id">
+        <Navbar toggleTheme={toggleTheme} theme={theme}/>
           <QuranPage/>
         </Route>
         <Route exact path="*">

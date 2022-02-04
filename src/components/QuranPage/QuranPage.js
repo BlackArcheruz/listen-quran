@@ -1,4 +1,3 @@
-import Navbar from '../Navbar/Navbar'
 import { useParams } from 'react-router-dom'
 import { Fragment, useEffect, useState } from 'react';
 import styled from 'styled-components';
@@ -7,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios'
+import NotFound from '../NotFound/NotFound'
 
 function QuranPage(){
     const LoadingMessage = styled.p`
@@ -124,9 +124,13 @@ function QuranPage(){
     const {id} = useParams();
     const [data,setData] = useState('');
     let pageLink = Number(id)
+    const [error,setError] = useState()
 
     const fetchData = async ()=>{
-        let res = await axios.get(`https://api.alquran.cloud/v1/surah/${id}/editions/ar.alafasy,uz.sodik`);
+        let res = await axios.get(`https://api.alquran.cloud/v1/surah/${id}/editions/ar.alafasy,uz.sodik`)
+            .catch(err=>{
+                setError(err)
+            })
         setData(res.data)
     }
     useEffect(()=>{
@@ -159,7 +163,8 @@ function QuranPage(){
     }
     return(
         <>
-        <Navbar/>
+         {!error ?
+             <Fragment>
         <QuranContent>
         <h1 className="sura-raqam">{data !== '' ? `${data?.data[0].number}-sura` : <LoadingMessage>Yuklanmoqda...</LoadingMessage>}</h1>
             <h1 className="sura-nom">{data !== '' ? data?.data[0].englishName : ''}</h1>
@@ -185,6 +190,7 @@ function QuranPage(){
         ))}
         {data !== '' ? PreviousBtn : null}
         {data !== '' ? NextBtn : null}
+        </Fragment>:<NotFound/>}
         </>
     )
 }

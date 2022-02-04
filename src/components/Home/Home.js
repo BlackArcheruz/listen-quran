@@ -1,13 +1,12 @@
-import Navbar from "../Navbar/Navbar";
 import Showcase from "./Showcase/Showcase";
 import styled from 'styled-components'
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 
-function Home(props){
+function Home(){
     const [data,setData] = useState('')
     const fetchData = async ()=>{
-        let res = await axios.get('https://api.alquran.cloud/v1/quran/uz.sodik');
+        let res = await axios.get('https://api.alquran.cloud/v1/meta');
         setData(res.data)
     }
     useEffect(()=>{
@@ -31,7 +30,6 @@ function Home(props){
     `
     return(
         <>
-        <Navbar toggleTheme={props.toggleTheme}/>
         {data.data !== undefined ? <Showcase data={data}/> : <LoadingMessage>Yuklanmoqda...</LoadingMessage>}
         </>
     )

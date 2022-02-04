@@ -14,6 +14,13 @@ export const GlobalStyles = createGlobalStyle`
   .rhap_time{
     color: ${({ theme }) => theme.text} !important; 
   }
+  .bm-menu{
+    background: ${({ theme }) => theme.body} !important;
+    color: ${({ theme }) => theme.text} !important;  
+  }
+  .bm-cross{
+    background: ${({ theme }) => theme.text} !important; 
+  }
 `;
 
 export const lightTheme = {

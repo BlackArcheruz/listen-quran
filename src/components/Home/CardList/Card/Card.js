@@ -31,7 +31,7 @@ function Card (props){
         <Link to={`/surah/${props.data.number}`}>
         <StyledCard>
             <h3>{props.data.number}-sura</h3>
-            <h4>{props.data.ayahs.length} oyat</h4>
+            <h4>{props.data.numberOfAyahs} oyat</h4>
             <h2>{props.data.englishName}</h2>
             <p>{props.data.name}</p>
             <h5>Nozil qilingan joyi: {props.data.revelationType === 'Meccan' ? 'Makka':'Madina'}</h5>

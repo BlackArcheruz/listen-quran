@@ -1,4 +1,3 @@
-import Navbar from "../Navbar/Navbar";
 import styled from "styled-components";
 import Logo from '../../Images/logo.png'
 
@@ -35,7 +34,6 @@ const DestinationContainer = styled.div`
 const Destination = ()=>{
     return(
         <>
-        <Navbar/>
         <DestinationContainer>
         <img src={Logo} alt="Loyiha logosi" width="128"/>
                     <h1>Maqsadimiz</h1>

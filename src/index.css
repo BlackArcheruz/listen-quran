@@ -20,6 +20,20 @@ a{
     display: none;
 }
 
+.bm-item:hover {
+    text-decoration: underline;
+    color: rgb(39, 130, 239);
+    transition: all ease 400ms;
+}
+
+button{
+    background: none;
+    border:none;
+    outline:none;
+    cursor:pointer;
+}
+
+
 @media (max-width:1000px) {
     .bm-burger-button{
         display: inline-block;
