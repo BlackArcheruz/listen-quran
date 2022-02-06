@@ -1,11 +1,13 @@
 import Showcase from "./Showcase/Showcase";
 import styled from 'styled-components'
-import { useEffect} from 'react'
+import { useState,useEffect} from 'react'
 import axios from 'axios'
 
 function Home(){
+    const [data, setData] = useState('');
     const fetchData = async ()=>{
         let res = await axios.get('https://api.alquran.cloud/v1/meta');
+        setData(res.data)
         localStorage.setItem("Quran",JSON.stringify(res.data))
     }
     let Quran = localStorage.getItem('Quran')
@@ -94,7 +96,7 @@ function Home(){
     `
     return(
         <>
-        {JSON.parse(Quran) !== null ? <Showcase data={JSON.parse(Quran)}/> : <LoadingMessage>
+        {JSON.parse(Quran) !== undefined ? <Showcase data={JSON.parse(Quran)}/> : <LoadingMessage>
             <div className="heading"></div>
             <div className="text"></div>
             <div className="grid">
