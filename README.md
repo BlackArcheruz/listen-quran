@@ -1,10 +1,10 @@
 # Listen Quran loyihasi haqida qisqacha ma'lumot
 
-Loyiha [React](https://github.com/facebook/create-react-app). JavaScript kutubxonasi asosida yozilgan.
+Loyiha [React](https://github.com/facebook/create-react-app) JavaScript kutubxonasi asosida yozilgan. Loyihaning asosiy maqsadi Qur'on muxlislari uchun Qur'on eshitishni soddalashtirish.
 
 ## Loyiha Web-Sahifasi:
 
-[Listen Quran](https://listen-quran.cf)
+[Listen Quran Web sahifasi](https://listen-quran.cf)
 
 ## Kodni ishga tushirish turlari
 
@@ -29,5 +29,5 @@ Loyihani build qiladi va `build` papkasiga Deploy qilish uchun tayyor fayllarni 
 
 Ushbu buyruqdan so'ng sizning dasturingiz Deploy qilish uchun tayyor holatga keladi!
 
-Ko'proq ma'lumot olish uchun [Deployment nima?](https://facebook.github.io/create-react-app/docs/deployment) kiring.
+Ko'proq ma'lumot olish uchun [Deployment nima?](https://facebook.github.io/create-react-app/docs/deployment)ga kiring.
 
