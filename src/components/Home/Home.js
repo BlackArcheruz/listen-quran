@@ -76,7 +76,10 @@ function Home(){
             grid-template-rows: repeat(1, 1fr);  
             }
             .card{
-            width: 30vw;
+            width: 50vw;
+            }
+            .text{
+                width: 50vw;
             }
         }
         @media (min-width:431px) and (max-width:640px){
@@ -86,6 +89,9 @@ function Home(){
             }
             .card{
             width: 30vw;
+            }
+            .text{
+                width: 50vw;
             }
         }
         @media (min-width:641px) and (max-width:1024px){
