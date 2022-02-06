@@ -99,6 +99,9 @@ function Home(){
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(3, 1fr);
             }
+            .card{
+            width: 30vw;
+            }
         }
         @media (min-width:1024px) and (max-width:1536px){
             .grid{
