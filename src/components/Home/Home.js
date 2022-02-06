@@ -95,9 +95,10 @@ function Home(){
         }
     `
     console.log(data)
+    console.log(JSON.parse(Quran))
     return(
         <>
-        {JSON.parse(Quran) !== undefined ? <Showcase data={JSON.parse(Quran)}/> : <LoadingMessage>
+        {Quran !== null ? <Showcase data={JSON.parse(Quran)}/> : <LoadingMessage>
             <div className="heading"></div>
             <div className="text"></div>
             <div className="grid">
