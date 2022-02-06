@@ -176,7 +176,7 @@ function QuranPage(){
                     className='audio'
                     src={(data?.data[0].number.toString().length === 1 ? `https://server8.mp3quran.net/afs/00${data?.data[0].number}.mp3` : '')||(data?.data[0].number.toString().length === 2 ? `http://server8.mp3quran.net/afs/0${data?.data[0].number}.mp3` : '')||(data?.data[0].number.toString().length === 3 ? `http://server8.mp3quran.net/afs/${data?.data[0].number}.mp3` : '')}
                     showJumpControls={false}
-                    // other props here
+                    
             /> : null}
         </QuranContent>
         {mergedArr?.map(ayah=>(
