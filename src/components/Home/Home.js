@@ -7,8 +7,9 @@ function Home(){
     const [data, setData] = useState('');
     const fetchData = async ()=>{
         let Quran = localStorage.getItem('Quran')
-        if(Quran !== null){
-            setData(JSON.parse(Quran)
+        if(Quran){
+            Quran = JSON.parse(Quran)
+            setData(Quran)
         }else{      
         let res = await axios.get('https://api.alquran.cloud/v1/meta');
         setData(res.data)
