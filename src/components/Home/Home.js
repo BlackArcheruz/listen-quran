@@ -94,6 +94,7 @@ function Home(){
             }
         }
     `
+    console.log(data)
     return(
         <>
         {JSON.parse(Quran) !== undefined ? <Showcase data={JSON.parse(Quran)}/> : <LoadingMessage>
