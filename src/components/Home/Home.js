@@ -6,11 +6,16 @@ import axios from 'axios'
 function Home(){
     const [data, setData] = useState('');
     const fetchData = async ()=>{
+        let Quran = localStorage.getItem('Quran')
+        if(Quran !== null){
+            setData(JSON.parse(Quran)
+        }else{      
         let res = await axios.get('https://api.alquran.cloud/v1/meta');
         setData(res.data)
         localStorage.setItem("Quran",JSON.stringify(res.data))
+        }
     }
-    let Quran = localStorage.getItem('Quran')
+    
     useEffect(()=>{
         fetchData()
     },[])
@@ -94,11 +99,10 @@ function Home(){
             }
         }
     `
-    console.log(data)
-    console.log(JSON.parse(Quran))
+
     return(
         <>
-        {Quran !== null ? <Showcase data={JSON.parse(Quran)}/> : <LoadingMessage>
+        {data.data !== undefined ? <Showcase data={data}/> : <LoadingMessage>
             <div className="heading"></div>
             <div className="text"></div>
             <div className="grid">
