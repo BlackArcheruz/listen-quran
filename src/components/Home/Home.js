@@ -53,7 +53,7 @@ function Home(){
         .card{
             height: 200px;
             border-radius: 5px;
-            width: 25vw;
+            width: 300px;
             padding: 1rem;
             margin: 2rem 0;
         }
@@ -75,11 +75,17 @@ function Home(){
             grid-template-columns: repeat(1, 1fr);
             grid-template-rows: repeat(1, 1fr);  
             }
+            .card{
+            width: 30vw;
+            }
         }
         @media (min-width:431px) and (max-width:640px){
             .grid{
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: repeat(2, 1fr);
+            }
+            .card{
+            width: 30vw;
             }
         }
         @media (min-width:641px) and (max-width:1024px){
