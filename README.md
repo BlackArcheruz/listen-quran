@@ -15,7 +15,7 @@ Loyiha turgan papkani oching va ushbu buyruqni yozing:
 Bu skript loyihani development shaklida ishga tushiradi.\
 Ishga tushgandan so'ng [http://localhost:3000](http://localhost:3000) ga Browser orqali kriing.
 
-Siz kodga o'zgartirish kiritgan bo'lsangiz u o'sha zahoti sahifani qayta yuklaydi.\
+Siz kodga o'zgartirish kiritgan bo'lsangiz u o'sha zahoti sahifani qayta yuklaydi.
 Agarda xato kod kiritgan bo'lsangiz console da error lar ham chiqarishi mumkin.
 
 ### `npm test`
@@ -25,7 +25,7 @@ Test haqida [Test skriptlari ishlashi](https://facebook.github.io/create-react-a
 
 ### `npm run build`
 
-Loyihani build qiladi va `build` papkasiga Deploy qilish uchun tayyor fayllarni joylaydi.\
+Loyihani build qiladi va `build` papkasiga Deploy qilish uchun tayyor fayllarni joylaydi.
 
 Ushbu buyruqdan so'ng sizning dasturingiz Deploy qilish uchun tayyor holatga keladi!
 
