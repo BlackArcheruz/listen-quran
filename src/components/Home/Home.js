@@ -53,6 +53,7 @@ function Home(){
         .card{
             height: 200px;
             border-radius: 5px;
+            width: 25%;
             padding: 1rem;
             margin: 2rem 0;
         }
