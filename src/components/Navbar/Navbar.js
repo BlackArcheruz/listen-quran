@@ -3,9 +3,10 @@ import {Link} from 'react-router-dom';
 import Logo from '../../Images/logo.png';
 import { slide as Menu } from 'react-burger-menu'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMoon, faSun } from "@fortawesome/free-regular-svg-icons";
+import { faMoon } from "@fortawesome/free-regular-svg-icons";
 import ReactTooltip from 'react-tooltip'
 import { faCog } from "@fortawesome/free-solid-svg-icons";
+import {Sun1} from "iconsax-react"
 
 function Navbar (props){
     var styles = {
@@ -90,7 +91,7 @@ function Navbar (props){
           button svg{
             font-size: 20px;
         }
-        button svg:hover{
+        button svg:hover, button path:hover{
             color: rgb(59 130 246);
             transition: all ease-in-out 300ms;
         }
@@ -132,7 +133,7 @@ function Navbar (props){
             <ul>
                 <li><Link to="/about">Biz haqimizda</Link></li>
                  <li><Link to="/destination">Maqsadimiz</Link></li>
-                 <li><button onClick={props.toggleTheme}>{props.theme === "dark" ? <FontAwesomeIcon icon={faMoon} color="#f1f1f1"/> : <FontAwesomeIcon icon={faSun} color="#121620"/>}</button></li>
+                 <li><button onClick={props.toggleTheme}>{props.theme === "dark" ? <FontAwesomeIcon icon={faMoon} color="#f1f1f1"/> : <Sun1 variant="Bold" color="#121620"/>}</button></li>
                 <li><button data-tip="Tez orada ushbu yangilik nima ekanligni bilib olasiz!"><FontAwesomeIcon icon={faCog} color={props.theme === "dark"? "#f1f1f1": "#121620"}/></button> <ReactTooltip effect="float" type={props.theme ==="dark" ? "light":"dark"}/></li>
             </ul>
         </StyledNav>
