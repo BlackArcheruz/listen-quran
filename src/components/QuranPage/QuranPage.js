@@ -9,11 +9,14 @@ import axios from 'axios'
 import NotFound from '../NotFound/NotFound'
 
 function QuranPage(){
-    const LoadingMessage = styled.p`
+    const LoadingMessage = styled.div`
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     font-size:32px;
     text-align:center;
     font-weight:700;
-    margin:1rem;
+    margin:2rem;
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 
     @keyframes pulse {
@@ -24,6 +27,20 @@ function QuranPage(){
          opacity: .5;
         }
     }
+    .heading{
+            height: 30px;
+            margin: 1rem 0;
+            width: 200px;
+            border-radius: 10px;
+            background: rgb(96 165 250);
+        }
+        .text{
+            height: 20px;
+            width: 100px;
+            border-radius: 10px;
+            margin: 0.5rem 0;
+        }
+
 `
     const ContainerSurah = styled.div`
     padding-bottom: 5rem;
@@ -127,11 +144,19 @@ function QuranPage(){
     const [error,setError] = useState()
 
     const fetchData = async ()=>{
+        let surah = localStorage.getItem(`${id}-surah`);
+        if(surah){
+            surah = JSON.parse(surah)
+            setData(surah)
+        }
+        else{
         let res = await axios.get(`https://api.alquran.cloud/v1/surah/${id}/editions/ar.alafasy,uz.sodik`)
             .catch(err=>{
                 setError(err)
             })
         setData(res.data)
+        localStorage.setItem(`${id}-surah`,JSON.stringify(res.data))
+            }
     }
     useEffect(()=>{
        fetchData()
@@ -166,7 +191,13 @@ function QuranPage(){
          {!error ?
              <Fragment>
         <QuranContent>
-        <h1 className="sura-raqam">{data !== '' ? `${data?.data[0].number}-sura` : <LoadingMessage>Yuklanmoqda...</LoadingMessage>}</h1>
+        <h1 className="sura-raqam">{data !== '' ? `${data?.data[0].number}-sura` : <LoadingMessage>
+        <div className="text"></div>
+        <div className="heading"></div>
+        <div className="heading"></div>
+        <div className="text"></div>
+        <div className="text"></div>
+        </LoadingMessage>}</h1>
             <h1 className="sura-nom">{data !== '' ? data?.data[0].englishName : ''}</h1>
             <h1 className="sura-arab">{data !== '' ? data?.data[0].name : ''}</h1>
             <h1 className='sura-oyatlar'>{data !== '' ? `${data?.data[0].numberOfAyahs} oyatdan iborat` : ''}</h1>
