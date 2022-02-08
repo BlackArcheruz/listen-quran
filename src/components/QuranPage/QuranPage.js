@@ -191,17 +191,20 @@ function QuranPage(){
          {!error ?
              <Fragment>
         <QuranContent>
-        <h1 className="sura-raqam">{data !== '' ? `${data?.data[0].number}-sura` : <LoadingMessage>
+        {data !== '' ? <Fragment>
+            <h1 className="sura-raqam">{`${data?.data[0].number}-sura`}</h1>
+            <h1 className="sura-nom">{data?.data[0].englishName}</h1>
+            <h1 className="sura-arab">{data?.data[0].name}</h1>
+            <h1 className='sura-oyatlar'>{`${data?.data[0].numberOfAyahs} oyatdan iborat`}</h1>
+            <h1 className='sura-nozil'>{data?.data[0].revelationType === 'Meccan' ? `Makkada nozil qilingan` : 'Madinada nozil qilingan'}</h1>
+            </Fragment>
+            : <LoadingMessage>
         <div className="text"></div>
         <div className="heading"></div>
         <div className="heading"></div>
         <div className="text"></div>
         <div className="text"></div>
-        </LoadingMessage>}</h1>
-            <h1 className="sura-nom">{data !== '' ? data?.data[0].englishName : ''}</h1>
-            <h1 className="sura-arab">{data !== '' ? data?.data[0].name : ''}</h1>
-            <h1 className='sura-oyatlar'>{data !== '' ? `${data?.data[0].numberOfAyahs} oyatdan iborat` : ''}</h1>
-            <h1 className='sura-nozil'>{data !== '' ? data?.data[0].revelationType === 'Meccan' ? `Makkada nozil qilingan` : 'Madinada nozil qilingan' : ''}</h1>
+        </LoadingMessage>}
             {data !== '' ? <AudioPlayer
                     autoPlay
                     className='audio'
