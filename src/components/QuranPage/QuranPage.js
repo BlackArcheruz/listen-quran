@@ -3,12 +3,14 @@ import { Fragment, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import AudioPlayer from 'react-h5-audio-player';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons';
+import {Next, Previous} from 'iconsax-react'
 import axios from 'axios'
 import NotFound from '../NotFound/NotFound'
+import { useTranslation } from 'react-i18next';
 
 function QuranPage(){
+    const [t, i18n] = useTranslation()
+
     const LoadingMessage = styled.div`
     display: flex;
     align-items: center;
@@ -91,7 +93,7 @@ function QuranPage(){
 
     const BtnPrevious = styled.div`
     position:fixed;
-    bottom: 22px;
+    bottom: 15px;
     left: 46%;
     
     a{
@@ -112,7 +114,7 @@ function QuranPage(){
     `
     const BtnNext = styled.div`
     position:fixed;
-    bottom: 22px;
+    bottom: 15px;
     right: 46%;
     
     a{
@@ -150,7 +152,7 @@ function QuranPage(){
             setData(surah)
         }
         else{
-        let res = await axios.get(`https://api.alquran.cloud/v1/surah/${id}/editions/ar.alafasy,uz.sodik`)
+        let res = await axios.get(`https://api.alquran.cloud/v1/surah/${id}/editions/ar.alafasy,${t('Translation')}`)
             .catch(err=>{
                 setError(err)
             })
@@ -177,14 +179,14 @@ function QuranPage(){
     if(id == 1 ){
         PreviousBtn = null;
     }else{
-        PreviousBtn = <BtnPrevious><Link to={`/surah/${--pageLink}`}> <FontAwesomeIcon icon={faStepBackward} size="lg" color='#868686'/></Link></BtnPrevious>
+        PreviousBtn = <BtnPrevious><Link to={`/surah/${--pageLink}`}> <Previous color='#868686'/></Link></BtnPrevious>
     }
     let NextBtn;
     // eslint-disable-next-line
     if(id == 114){
         NextBtn = null;
     }else{
-        NextBtn = <BtnNext><Link to={`/surah/${pageLink === (data !== '' ? data?.data[0].number : id) ? pageLink + 1 : pageLink + 2}`}> <FontAwesomeIcon icon={faStepForward} size="lg" color='#868686'/></Link></BtnNext>
+        NextBtn = <BtnNext><Link to={`/surah/${pageLink === (data !== '' ? data?.data[0].number : id) ? pageLink + 1 : pageLink + 2}`}> <Next color='#868686'/></Link></BtnNext>
     }
     return(
         <>
@@ -192,11 +194,11 @@ function QuranPage(){
              <Fragment>
         <QuranContent>
         {data !== '' ? <Fragment>
-            <h1 className="sura-raqam">{`${data?.data[0].number}-sura`}</h1>
+            <h1 className="sura-raqam">{`${data?.data[0].number}${t('-sura')}`}</h1>
             <h1 className="sura-nom">{data?.data[0].englishName}</h1>
             <h1 className="sura-arab">{data?.data[0].name}</h1>
-            <h1 className='sura-oyatlar'>{`${data?.data[0].numberOfAyahs} oyatdan iborat`}</h1>
-            <h1 className='sura-nozil'>{data?.data[0].revelationType === 'Meccan' ? `Makkada nozil qilingan` : 'Madinada nozil qilingan'}</h1>
+            <h1 className='sura-oyatlar'>{`${data?.data[0].numberOfAyahs} ${t('verse_long')}`}</h1>
+            <h1 className='sura-nozil'>{data?.data[0].revelationType === 'Meccan' ? t('relevation_long_Meccan') : t('relevation_long_Medinan')}</h1>
             </Fragment>
             : <LoadingMessage>
         <div className="text"></div>

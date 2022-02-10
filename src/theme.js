@@ -18,6 +18,10 @@ export const GlobalStyles = createGlobalStyle`
     background: ${({ theme }) => theme.body} !important;
     color: ${({ theme }) => theme.text} !important;  
   }
+  .bm-burger-bars{
+    background: ${({ theme }) => theme.text} !important; 
+    border-radius: 2px;
+  }
   .bm-cross{
     background: ${({ theme }) => theme.text} !important; 
   }

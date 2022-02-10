@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import CardList from '../CardList/CardList'
+import { useTranslation } from 'react-i18next';
 
 const ShowcaseContainer = styled.div`
     padding:2rem;
@@ -21,13 +22,14 @@ const ShowcaseContainer = styled.div`
 `
 
 function Showcase (props){
+    const [t, i18n] = useTranslation()
     return(
         
         <ShowcaseContainer>
-            <h1>Qurʼon </h1>
-            <p>Eshitish uchun suralardan birini tanlang:</p>
+            <h1>{t('Qur\'on')}</h1>
+            <p>{t('Listen')}</p>
             <CardList data={props.data}/>
-            <p>Qori: مشاري العفاسي</p>
+            <p>{t('Qori')} مشاري العفاسي</p>
             
         </ShowcaseContainer>
     )

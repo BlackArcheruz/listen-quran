@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Logo from '../../Images/logo.png'
+import { useTranslation } from 'react-i18next';
 
 function NotFound(){
+    const [t, i18n] = useTranslation()
     const StyledHeading = styled.div`
         text-align: center;
         display: flex;
@@ -41,9 +43,9 @@ function NotFound(){
         <h4>
             404 Error
         </h4>
-        <h1>Sahifa topilmadi.</h1>
-        <p>Siz qidirayotgan sahifa afsuski topilmadi.</p>
-        <Link to="/">Bosh sahifaga qaytish</Link>
+        <h1>{t('NotFound')}</h1>
+        <p>{t('Sorry')}</p>
+        <Link to="/">{t('Back_home')}</Link>
         </StyledHeading>
     )
 }

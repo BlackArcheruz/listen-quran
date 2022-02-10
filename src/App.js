@@ -8,6 +8,7 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme, GlobalStyles } from "./theme";
 import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -27,7 +28,6 @@ function App() {
       setTheme("dark");
     }
   }, []);
-
   return (
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
     <>
@@ -37,6 +37,7 @@ function App() {
        <Route exact path="/">
          <Navbar toggleTheme={toggleTheme} theme={theme}/>
          <Home/>
+         <Footer/>
         </Route>
         <Route exact path="/about">
         <Navbar toggleTheme={toggleTheme} theme={theme}/>

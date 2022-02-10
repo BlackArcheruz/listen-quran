@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Logo from '../../Images/logo.png'
+import { useTranslation } from 'react-i18next';
 
 const DestinationContainer = styled.div`
     display:flex;
@@ -32,12 +33,13 @@ const DestinationContainer = styled.div`
 
 `
 const Destination = ()=>{
+    const [t, i18n] = useTranslation()
     return(
         <>
         <DestinationContainer>
         <img src={Logo} alt="Loyiha logosi" width="128"/>
-                    <h1>Maqsadimiz</h1>
-                    <p>Listen-Quran loyihasi O'zbekistonlik yosh dasturchilar tomonidan Qur'on eshitishni osonlashtirish, Qur'onga muhabbatni yana qaytarish maqsadida yozilgan. Maqsadimiz ummatga yana Qur'on muhabbatini qaytarish, Qur'onni tafsirlarini o'rganishni osonlashtirish. Loyiha hech kim tomonidan moliyalashtirilmagan va loyihadan maqsad pul topish emas. Loyihaning asosiy maqsadi Qur'on eshitishni yanada ommalashtirish.</p>
+                    <h1>{t('Destination')}</h1>
+                    <p>{t('Destination_desc')}</p>
         </DestinationContainer>
         </>
     )

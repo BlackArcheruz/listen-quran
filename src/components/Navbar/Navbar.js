@@ -1,14 +1,23 @@
 import styled from "styled-components";
 import {Link} from 'react-router-dom';
 import Logo from '../../Images/logo.png';
-import { slide as Menu } from 'react-burger-menu'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMoon } from "@fortawesome/free-regular-svg-icons";
-import ReactTooltip from 'react-tooltip'
-import { faCog } from "@fortawesome/free-solid-svg-icons";
-import {Sun1} from "iconsax-react"
+import { stack as Menu } from 'react-burger-menu'
+import {Sun1, LanguageSquare, Moon} from "iconsax-react"
+import { useTranslation } from 'react-i18next';
 
 function Navbar (props){
+  const [t,i18n] = useTranslation()
+  const setLanguage = ()=>{
+    let language = localStorage.getItem('Language')
+    if(language === 'en'){
+      localStorage.setItem('Language','uz');
+      i18n.changeLanguage('uz')
+    }else{
+      localStorage.setItem('Language','en');
+      i18n.changeLanguage('en')
+    }
+  }
+
     var styles = {
         bmBurgerButton: {
           position: 'absolute',
@@ -16,14 +25,6 @@ function Navbar (props){
           height: '30px',
           right: '20px',
           top: '25px'
-        },
-        bmBurgerBars: {
-          background: 'rgb(59 130 246)',
-          borderRadius: '5px'
-        },
-        bmBurgerBarsHover: {
-          background: '#a90000',
-          transition: 'all ease-in 400ms'
         },
         bmCrossButton: {
           height: '24px',
@@ -42,6 +43,8 @@ function Navbar (props){
         },
         bmItemList: {
           padding: '0.8em',
+          display: 'flex',
+          flexDirection: 'column',
           fontWeight: '600'
         },
         bmItem: {
@@ -123,18 +126,18 @@ function Navbar (props){
     return(
         <>
         <Menu right bubble styles={styles} > 
-                <a id="about" className="menu-item" href="/about">Biz haqimizda</a>
-                <a id="destination" className="menu-item" href="/destination">Maqsadimiz</a>
-                <><button className="menu-item" data-tip="Tez orada ushbu yangilik nima ekanligni bilib olasiz!" style={{display: "flex",alignItems: "center", margin: "1rem 0", fontWeight: "600", fontSize: "1.15em", color: (props.theme === 'dark' ? "#f1f1f1" : "#121620")}}><FontAwesomeIcon icon={faCog} color={props.theme === "dark"? "#f1f1f1": "#121620"}/> Sozlamalar</button> <ReactTooltip effect="solid" type={props.theme ==="dark" ? "light":"dark"}/> </>
+                <a id="about" className="menu-item" href="/about">{t('About')}</a>
+                <a id="destination" className="menu-item" href="/destination">{t('Destination')}</a>
+                <button id="settings" className="menu-item" onClick={setLanguage} style={{display: "flex",alignItems: "center", margin: "1rem 0", fontWeight: "600", fontSize: "1.15em", color: (props.theme === 'dark' ? "#f1f1f1" : "#121620")}}><LanguageSquare color={props.theme === "dark"? "#f1f1f1": "#121620"} style={{marginRight: '5px'}}/> {t('language')}</button> 
             </Menu>
         <StyledNav>
             <Link to="/" className="logo"><img src={Logo} alt="Logo" width="48"/><h1>Listen-Quran</h1></Link>
 
             <ul>
-                <li><Link to="/about">Biz haqimizda</Link></li>
-                 <li><Link to="/destination">Maqsadimiz</Link></li>
-                 <li><button onClick={props.toggleTheme}>{props.theme === "dark" ? <FontAwesomeIcon icon={faMoon} color="#f1f1f1"/> : <Sun1 variant="Bold" color="#121620"/>}</button></li>
-                <li><button data-tip="Tez orada ushbu yangilik nima ekanligni bilib olasiz!"><FontAwesomeIcon icon={faCog} color={props.theme === "dark"? "#f1f1f1": "#121620"}/></button> <ReactTooltip effect="float" type={props.theme ==="dark" ? "light":"dark"}/></li>
+                <li><Link to="/about">{t('About')}</Link></li>
+                 <li><Link to="/destination">{t('Destination')}</Link></li>
+                 <li><button onClick={props.toggleTheme}>{props.theme === "dark" ? <Moon variant="Linear" color="#f1f1f1"/> : <Sun1 variant="Bold" color="#121620"/>}</button></li>
+                <li><button onClick={setLanguage} style={{display: "flex",alignItems: "center", fontWeight: "600", fontSize: "1.15em"}}><LanguageSquare variant={props.theme === "dark" ? "Outline" : "Bold"} color={props.theme === "dark"? "#f1f1f1": "#121620"} style={{marginRight: '5px'}}/> {t('language')}</button></li>
             </ul>
         </StyledNav>
         
