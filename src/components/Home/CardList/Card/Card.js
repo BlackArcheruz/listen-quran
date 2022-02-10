@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useTranslation } from 'react-i18next';
 
 function Card (props){
+    // eslint-disable-next-line
     const [t, i18n] = useTranslation()
     const StyledCard = styled.div`
         height: 200px;
