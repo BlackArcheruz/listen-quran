@@ -9,6 +9,7 @@ import NotFound from '../NotFound/NotFound'
 import { useTranslation } from 'react-i18next';
 
 function QuranPage(){
+    // eslint-disable-next-line
     const [t, i18n] = useTranslation()
 
     const LoadingMessage = styled.div`
