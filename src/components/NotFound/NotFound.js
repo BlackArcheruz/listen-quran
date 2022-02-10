@@ -4,6 +4,7 @@ import Logo from '../../Images/logo.png'
 import { useTranslation } from 'react-i18next';
 
 function NotFound(){
+    // eslint-disable-next-line
     const [t, i18n] = useTranslation()
     const StyledHeading = styled.div`
         text-align: center;
