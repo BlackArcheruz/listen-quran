@@ -6,6 +6,7 @@ import {Sun1, LanguageSquare, Moon} from "iconsax-react"
 import { useTranslation } from 'react-i18next';
 
 function Navbar (props){
+  // eslint-disable-next-line
   const [t,i18n] = useTranslation()
   const setLanguage = ()=>{
     let language = localStorage.getItem('Language')
