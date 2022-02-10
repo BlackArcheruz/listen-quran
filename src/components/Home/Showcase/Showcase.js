@@ -22,6 +22,7 @@ const ShowcaseContainer = styled.div`
 `
 
 function Showcase (props){
+    // eslint-disable-next-line
     const [t, i18n] = useTranslation()
     return(
         
