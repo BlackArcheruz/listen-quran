@@ -163,7 +163,7 @@ function QuranPage(){
     useEffect(()=>{
        fetchData()
         // eslint-disable-next-line
-    },[id])
+    },[id,t('Translation')])
     const arr = data?.data?.map(oyat=>oyat.ayahs.map(oyat=>oyat));
     const surah = arr !== undefined ? arr[0]?.map(surah=>surah): null;
     const translation = arr !== undefined ? arr[1]?.map(surah=>surah): null;
