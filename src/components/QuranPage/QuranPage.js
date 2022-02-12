@@ -147,11 +147,18 @@ function QuranPage(){
     const [error,setError] = useState()
 
     const fetchData = async ()=>{
+        let surah = localStorage.getItem(`${id}-${t('Translation')} surah`)
+        if(surah){
+            surah = JSON.parse(surah)
+            setData(surah)
+        }else{
         let res = await axios.get(`https://api.alquran.cloud/v1/surah/${id}/editions/ar.alafasy,${t('Translation')}`)
             .catch(err=>{
                 setError(err)
             })
         setData(res.data)
+        localStorage.setItem(`${id}-${t('Translation')} surah`, JSON.stringify(res.data))
+        }
     }
     useEffect(()=>{
        fetchData()
