@@ -44,9 +44,10 @@ function App() {
   let arrFiltered = arr?.filter(el=>el!==undefined)
   let editions = arrFiltered.map(edition=>edition);
   let [edition,setEdition] = useState('https://server8.mp3quran.net/afs')
+  let Qori = localStorage.getItem('Edition')
   const setNewEdition = (e)=>{
     setEdition(e.target.value)
-    localStorage.setItem('Edition',e.target.value)
+    Qori ? localStorage.setItem('Edition',e.target.value) : localStorage.setItem('Edition','https://server8.mp3quran.net/afs')
   }
   return (
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
