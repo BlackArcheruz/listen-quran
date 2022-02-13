@@ -44,15 +44,13 @@ function App() {
   let arrFiltered = arr?.filter(el=>el!==undefined)
   let editions = arrFiltered.map(edition=>edition);
   let [edition,setEdition] = useState('https://server8.mp3quran.net/afs')
-
+  let Qori = localStorage.getItem('Edition')
+    if(!Qori){
+      localStorage.setItem('Edition','https://server8.mp3quran.net/afs')
+    }
   const setNewEdition = (e)=>{
     setEdition(e.target.value)
-    let Qori = localStorage.getItem('Edition')
-    if(Qori){
-      localStorage.setItem('Edition',e.target.value)
-    }else{
-    localStorage.setItem('Edition','https://server8.mp3quran.net/afs')
-    }
+    localStorage.setItem('Edition',e.target.value)
   }
   return (
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
