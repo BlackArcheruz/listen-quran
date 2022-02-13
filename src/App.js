@@ -47,7 +47,11 @@ function App() {
   let Qori = localStorage.getItem('Edition')
   const setNewEdition = (e)=>{
     setEdition(e.target.value)
-    Qori ? localStorage.setItem('Edition',e.target.value) : localStorage.setItem('Edition','https://server8.mp3quran.net/afs')
+    if(Qori){
+      localStorage.setItem('Edition',e.target.value)
+    }else{
+    localStorage.setItem('Edition','https://server8.mp3quran.net/afs')
+    }
   }
   return (
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
