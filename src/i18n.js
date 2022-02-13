@@ -7,6 +7,7 @@ const language = (lang)=>{
     return Language
   }else{
     return lang
+    localStorage.setItem('Language', lang)
   }
 }
 const resources = {
