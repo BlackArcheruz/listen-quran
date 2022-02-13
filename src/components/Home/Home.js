@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useState,useEffect} from 'react'
 import axios from 'axios'
 
-function Home(){
+function Home(props){
     const [data, setData] = useState('');
     const fetchData = async ()=>{
         let Quran = localStorage.getItem('Quran')
@@ -119,7 +119,7 @@ function Home(){
 
     return(
         <>
-        {data.data !== undefined ? <Showcase data={data}/> : <LoadingMessage>
+        {data.data !== undefined ? <Showcase data={data} editions={props.editions}/> : <LoadingMessage>
             <div className="heading"></div>
             <div className="text"></div>
             <div className="grid">

@@ -35,6 +35,14 @@ export const GlobalStyles = createGlobalStyle`
       background: ${({ theme }) => theme.loadingText} !important; 
     }
   }
+  select{
+    background: ${({ theme }) => theme.body} !important;
+    color: ${({ theme }) => theme.text} !important;  
+  }
+  option{
+    background: ${({ theme }) => theme.body} !important;
+    color: ${({ theme }) => theme.text} !important;  
+  }
 `;
 
 export const lightTheme = {

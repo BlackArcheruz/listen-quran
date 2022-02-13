@@ -22,6 +22,9 @@ const ShowcaseContainer = styled.div`
 `
 
 function Showcase (props){
+    const EditionServer = localStorage.getItem('Edition')
+    const Editions = props.editions.map(edition=>edition.Server !== EditionServer ? undefined : edition.name)
+    const edition = Editions.filter(el=>el!==undefined)
     // eslint-disable-next-line
     const [t, i18n] = useTranslation()
     return(
@@ -30,7 +33,7 @@ function Showcase (props){
             <h1>{t('Qur\'on')}</h1>
             <p>{t('Listen')}</p>
             <CardList data={props.data}/>
-            <p>{t('Qori')} مشاري العفاسي</p>
+            <p>{t('Qori')} {edition}</p>
             
         </ShowcaseContainer>
     )

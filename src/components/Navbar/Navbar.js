@@ -2,22 +2,12 @@ import styled from "styled-components";
 import {Link} from 'react-router-dom';
 import Logo from '../../Images/logo.png';
 import { stack as Menu } from 'react-burger-menu'
-import {Sun1, LanguageSquare, Moon} from "iconsax-react"
+import {Sun1, Setting2, Moon} from "iconsax-react"
 import { useTranslation } from 'react-i18next';
 
 function Navbar (props){
   // eslint-disable-next-line
   const [t,i18n] = useTranslation()
-  const setLanguage = ()=>{
-    let language = localStorage.getItem('Language')
-    if(language === 'en'){
-      localStorage.setItem('Language','uz');
-      i18n.changeLanguage('uz')
-    }else{
-      localStorage.setItem('Language','en');
-      i18n.changeLanguage('en')
-    }
-  }
 
     var styles = {
         bmBurgerButton: {
@@ -145,7 +135,7 @@ function Navbar (props){
         <Menu right bubble styles={styles} > 
                 <a id="about" className="menu-item" href="/about">{t('About')}</a>
                 <a id="destination" className="menu-item" href="/destination">{t('Destination')}</a>
-                <button id="settings" className="menu-item" onClick={setLanguage} style={{display: "flex",alignItems: "center", margin: "1rem 0", fontWeight: "600", fontSize: "1.15em", color: (props.theme === 'dark' ? "#f1f1f1" : "#121620")}}><LanguageSquare color={props.theme === "dark"? "#f1f1f1": "#121620"} style={{marginRight: '5px'}}/> {t('language')}</button> 
+                <a href="/settings" id="settings" className="menu-item" style={{display: "flex",alignItems: "center", margin: "1rem 0", fontWeight: "600", fontSize: "1.15em", color: (props.theme === 'dark' ? "#f1f1f1" : "#121620")}}><Setting2 color={props.theme === "dark"? "#f1f1f1": "#121620"} style={{marginRight: '5px'}}/> {t('Settings')}</a> 
             </Menu>
         <StyledNav>
             <Link to="/" className="logo"><img src={Logo} alt="Logo" width="48"/><h1>Listen-Quran</h1></Link>
@@ -154,7 +144,7 @@ function Navbar (props){
                 <li><Link to="/about">{t('About')}</Link></li>
                  <li><Link to="/destination">{t('Destination')}</Link></li>
                  <li><button onClick={props.toggleTheme}>{props.theme === "dark" ? <Moon variant="Linear" color="#f1f1f1"/> : <Sun1 variant="Bold" color="#121620"/>}</button></li>
-                <li><button onClick={setLanguage} style={{display: "flex",alignItems: "center", fontWeight: "600", fontSize: "1.15em"}}><LanguageSquare variant={props.theme === "dark" ? "Outline" : "Bold"} color={props.theme === "dark"? "#f1f1f1": "#121620"} style={{marginRight: '5px'}}/> {t('language')}</button></li>
+                <li><Link to="/settings"><Setting2 variant={props.theme === "dark"? 'Linear' : 'Bold'} color={props.theme === "dark"? "#f1f1f1": "#121620"} style={{marginRight: '5px'}}/></Link></li>
             </ul>
         </StyledNav>
         

@@ -6,11 +6,14 @@ import QuranPage from './components/QuranPage/QuranPage';
 import NotFound from './components/NotFound/NotFound';
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme, GlobalStyles } from "./theme";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
+import axios from 'axios'
+import Settings from './components/Settings/Settings.js'
 
 function App() {
+  const [data, setData] = useState();
   const [theme, setTheme] = useState("light");
   const isDarkTheme = theme === "dark";
   const toggleTheme = () => {
@@ -18,6 +21,12 @@ function App() {
     setTheme(updatedTheme);
     localStorage.setItem("theme", updatedTheme);
   };
+
+  const fetchData = async ()=>{    
+    let res = await axios.get('https://www.mp3quran.net/api/_arabic.json');
+    setData(res.data)
+}
+
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia &&
@@ -28,6 +37,17 @@ function App() {
       setTheme("dark");
     }
   }, []);
+  useMemo(()=>{
+    fetchData()
+  },[])
+  let arr = data !== undefined ? data?.reciters.map(reciter=>reciter.count === '114' ? reciter : undefined) : []
+  let arrFiltered = arr?.filter(el=>el!==undefined)
+  let editions = arrFiltered.map(edition=>edition);
+  let [edition,setEdition] = useState('https://server8.mp3quran.net/afs')
+  const setNewEdition = (e)=>{
+    setEdition(e.target.value)
+    localStorage.setItem('Edition',e.target.value)
+  }
   return (
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
     <>
@@ -36,7 +56,7 @@ function App() {
       <Switch>
        <Route exact path="/">
          <Navbar toggleTheme={toggleTheme} theme={theme}/>
-         <Home/>
+         <Home editions={editions}/>
          <Footer/>
         </Route>
         <Route exact path="/about">
@@ -49,7 +69,11 @@ function App() {
         </Route>
         <Route exact path="/surah/:id">
         <Navbar toggleTheme={toggleTheme} theme={theme}/>
-          <QuranPage/>
+          <QuranPage edition={edition}/>
+        </Route>
+        <Route exact path="/settings">
+        <Navbar toggleTheme={toggleTheme} theme={theme}/>
+          <Settings editions={editions} setNewEdition={setNewEdition}/>
         </Route>
         <Route exact path="*">
           <NotFound/>

@@ -32,7 +32,10 @@ const resources = {
       'Destination_desc': `The Listen-Quran project was written by young Uzbek programmers to make it easier to hear the Qur'an and return the love to the Qur'an. Our goal is to return the love of the Qur'an to the Ummah, to make it easier for them to study the interpretations of the Qur'an. The project is not funded by anyone and the goal of the project is not to make money. The main goal of the project is to increase the popularity of Quran recitation.`,
       'NotFound': 'This page doesn\'t exist',
       'Sorry': 'Sorry, that you are searching page is not exist',
-      'Back_home': "Go Back home"
+      'Back_home': "Go Back home",
+      'Select_edition': 'Select Edition:',
+      'Select_language': 'Select Language:',
+      'Settings': 'Settings'
     }
   },
   uz: {
@@ -57,7 +60,10 @@ const resources = {
       'Destination_desc': `Listen-Quran loyihasi O'zbekistonlik yosh dasturchilar tomonidan Qur'on eshitishni osonlashtirish, Qur'onga muhabbatni yana qaytarish maqsadida yozilgan. Maqsadimiz ummatga yana Qur'on muhabbatini qaytarish, Qur'onni tafsirlarini o'rganishni osonlashtirish. Loyiha hech kim tomonidan moliyalashtirilmagan va loyihadan maqsad pul topish emas. Loyihaning asosiy maqsadi Qur'on eshitishni yanada ommalashtirish.`,
       'NotFound': 'Sahifa topilmadi.',
       'Sorry': 'Siz qidirayotgan sahifa afsuski topilmadi.',
-      'Back_home': "Bosh sahifaga qaytish"
+      'Back_home': "Bosh sahifaga qaytish",
+      'Select_edition': 'Qorini tanlang:',
+      'Select_language': 'Tilni tanlang:',
+      'Settings': 'Sozlamalar'
     }
   }
 };

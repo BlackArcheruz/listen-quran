@@ -8,7 +8,7 @@ import axios from 'axios'
 import NotFound from '../NotFound/NotFound'
 import { useTranslation } from 'react-i18next';
 
-function QuranPage(){
+function QuranPage(props){
     // eslint-disable-next-line
     const [t, i18n] = useTranslation()
 
@@ -145,7 +145,7 @@ function QuranPage(){
     const [data,setData] = useState('');
     let pageLink = Number(id)
     const [error,setError] = useState()
-
+    const edition = localStorage.getItem('Edition')
     const fetchData = async ()=>{
         let surah = localStorage.getItem(`${id}-${t('Translation')} surah`)
         if(surah){
@@ -173,7 +173,6 @@ function QuranPage(){
             'translate': translation[index]
         }
     })
-
     let PreviousBtn;
     // eslint-disable-next-line
     if(id == 1 ){
@@ -210,7 +209,7 @@ function QuranPage(){
             {data !== '' ? <AudioPlayer
                     autoPlay
                     className='audio'
-                    src={(data?.data[0].number.toString().length === 1 ? `https://server8.mp3quran.net/afs/00${data?.data[0].number}.mp3` : '')||(data?.data[0].number.toString().length === 2 ? `http://server8.mp3quran.net/afs/0${data?.data[0].number}.mp3` : '')||(data?.data[0].number.toString().length === 3 ? `http://server8.mp3quran.net/afs/${data?.data[0].number}.mp3` : '')}
+                    src={(data?.data[0].number.toString().length === 1 ? `${edition}/00${data?.data[0].number}.mp3` : '')||(data?.data[0].number.toString().length === 2 ? `${edition}/0${data?.data[0].number}.mp3` : '')||(data?.data[0].number.toString().length === 3 ? `${edition}/${data?.data[0].number}.mp3` : '')}
                     showJumpControls={false}
                     
             /> : null}
