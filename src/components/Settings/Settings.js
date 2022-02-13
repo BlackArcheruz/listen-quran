@@ -6,7 +6,6 @@ const Settings = (props)=>{
   const [t,i18n] = useTranslation()
   var language = localStorage.getItem('Language')
   const setLanguage = ()=>{
-    
     if(language === 'en'){
       localStorage.setItem('Language','uz');
       i18n.changeLanguage('uz')
