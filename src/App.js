@@ -43,14 +43,16 @@ function App() {
   let arr = data !== undefined ? data?.reciters.map(reciter=>reciter.count === '114' ? reciter : undefined) : []
   let arrFiltered = arr?.filter(el=>el!==undefined)
   let editions = arrFiltered.map(edition=>edition);
+  let Language = localStorage.getItem('Language')
+    if(!Language){
+      localStorage.setItem('Language','uz')
+    }
+    
   let Qori = localStorage.getItem('Edition')
     if(!Qori){
       localStorage.setItem('Edition','https://server8.mp3quran.net/afs')
     }
-    let Language = localStorage.getItem('Language')
-    if(!Language){
-      localStorage.setItem('Language','uz')
-    }
+    
   const setNewEdition = (e)=>{
     localStorage.setItem('Edition',e.target.value)
   }
