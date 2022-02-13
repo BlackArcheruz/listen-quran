@@ -37,6 +37,11 @@ const Settings = (props)=>{
                 background: rgb(209 213 219);
             }
         }
+        @media(max-width: 640px){
+            div{
+                flex-direction: column;
+            }
+        }
     `
     return(
         <SettingsContainer>
