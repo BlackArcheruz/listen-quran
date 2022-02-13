@@ -40,6 +40,10 @@ const Settings = (props)=>{
         @media(max-width: 640px){
             div{
                 flex-direction: column;
+
+                select{
+                    margin: .5rem 0;
+                }
             }
         }
     `
