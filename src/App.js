@@ -47,6 +47,10 @@ function App() {
     if(!Qori){
       localStorage.setItem('Edition','https://server8.mp3quran.net/afs')
     }
+    let Language = localStorage.getItem('Language')
+    if(!Language){
+      localStorage.setItem('Edition','uz')
+    }
   const setNewEdition = (e)=>{
     localStorage.setItem('Edition',e.target.value)
   }
