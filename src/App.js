@@ -49,7 +49,7 @@ function App() {
     }
     let Language = localStorage.getItem('Language')
     if(!Language){
-      localStorage.setItem('Edition','uz')
+      localStorage.setItem('Language','uz')
     }
   const setNewEdition = (e)=>{
     localStorage.setItem('Edition',e.target.value)
