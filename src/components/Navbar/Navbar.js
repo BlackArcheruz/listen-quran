@@ -123,6 +123,22 @@ function Navbar (props){
         @media (max-width: 420px){
             padding: 1rem .4rem;
         }
+        @media(min-width: 331px) and (max-width: 340px){
+          h1{
+            font-size: 30px;
+          }
+        }
+        @media (max-width: 330px){
+          h1{
+            font-size: 24px;
+          }
+          .logo{
+            img{
+              margin-right: .2rem; 
+            }
+          }
+          
+        }
     `
     return(
         <>
