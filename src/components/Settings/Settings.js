@@ -5,13 +5,22 @@ const Settings = (props)=>{
      // eslint-disable-next-line
   const [t,i18n] = useTranslation()
   var language = localStorage.getItem('Language')
-  const setLanguage = ()=>{
-    if(language === 'en'){
-      localStorage.setItem('Language','uz');
-      i18n.changeLanguage('uz')
-    }else{
-      localStorage.setItem('Language','en');
-      i18n.changeLanguage('en')
+  const setLanguage = (e)=>{
+    switch (e.target.value) {
+        case 'uz':
+            localStorage.setItem('Language', 'uz')
+            i18n.changeLanguage('uz')
+            break;
+        case 'en':
+            localStorage.setItem('Language', 'en')
+            i18n.changeLanguage('en')
+            break;
+         case 'uz_cyril':
+            localStorage.setItem('Language', 'uz_cyril')
+            i18n.changeLanguage('uz_cyril')
+            break;   
+        default:
+            break;
     }
   }
     const Edition = localStorage.getItem('Edition')
@@ -52,7 +61,7 @@ const Settings = (props)=>{
         <h1>{t('Select_edition')}</h1>
         <select onChange={props.setNewEdition}>
         {props.editions.map(edition=>(
-            <option key={edition.id} selected={edition.Server === Edition} value={edition.Server}>{edition.name}</option>
+            <option key={edition.id} selected={edition.Server === Edition} value={edition.Server}> {edition.name}</option>
         ))}
         </select>
         </div>
@@ -61,8 +70,9 @@ const Settings = (props)=>{
         {t('Select_language')}
         </h1>
         <select onChange={setLanguage} style={{display: "flex",alignItems: "center", fontWeight: "600", fontSize: "1.15em"}}>
-            <option value={language} selected={language === 'en'}>English</option>
-            <option value={language} selected={language === 'uz'}>Uzbek</option>
+            <option value={'en'} selected={language === 'en'}> English</option>
+            <option value={'uz'} selected={language === 'uz'}> O'zbek</option>
+            <option value={'uz_cyril'} selected={language === 'uz_cyril'}> Ўзбек</option>
         </select>
         </div>
         </SettingsContainer>

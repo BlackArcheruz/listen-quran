@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {Link} from 'react-router-dom';
 import Logo from '../../Images/logo.png';
 import { stack as Menu } from 'react-burger-menu'
-import {Sun1, Setting2, Moon} from "iconsax-react"
+import {Sun1, Setting2, Moon, ArchiveBook, Award} from "iconsax-react"
 import { useTranslation } from 'react-i18next';
 
 function Navbar (props){
@@ -133,9 +133,9 @@ function Navbar (props){
     return(
         <>
         <Menu right bubble styles={styles} > 
-                <a id="about" className="menu-item" href="/about">{t('About')}</a>
-                <a id="destination" className="menu-item" href="/destination">{t('Destination')}</a>
-                <a href="/settings" id="settings" className="menu-item" style={{display: "flex",alignItems: "center", margin: "1rem 0", fontWeight: "600", fontSize: "1.15em", color: (props.theme === 'dark' ? "#f1f1f1" : "#121620")}}><Setting2 color={props.theme === "dark"? "#f1f1f1": "#121620"} style={{marginRight: '5px'}}/> {t('Settings')}</a> 
+                <a id="about" className="menu-item" style={{display: "flex",alignItems: "center",justifyContent:'flex-start', margin: "1rem 0", fontWeight: "600", fontSize: "1.15em", color: (props.theme === 'dark' ? "#f1f1f1" : "#121620")}} href="/about"><ArchiveBook variant={props.theme === "dark"? 'Linear' : 'Bold'} color={props.theme === "dark"? "#f1f1f1": "#121620"} style={{marginRight: '5px'}}/>{t('About')}</a>
+                <a id="destination" className="menu-item" style={{display: "flex",alignItems: "center", justifyContent:'flex-start',margin: "1rem 0", fontWeight: "600", fontSize: "1.15em", color: (props.theme === 'dark' ? "#f1f1f1" : "#121620")}} href="/destination"><Award variant={props.theme === "dark"? 'Linear' : 'Bold'} color={props.theme === "dark"? "#f1f1f1": "#121620"} style={{marginRight: '5px'}}/> {t('Destination')}</a>
+                <a href="/settings" id="settings" className="menu-item" style={{display: "flex",alignItems: "center", justifyContent:'flex-start', margin: "1rem 0", fontWeight: "600", fontSize: "1.15em", color: (props.theme === 'dark' ? "#f1f1f1" : "#121620")}}><Setting2 variant={props.theme === "dark"? 'Linear' : 'Bold'} color={props.theme === "dark"? "#f1f1f1": "#121620"} style={{marginRight: '5px'}}/> {t('Settings')}</a> 
             </Menu>
         <StyledNav>
             <Link to="/" className="logo"><img src={Logo} alt="Logo" width="48"/><h1>Listen-Quran</h1></Link>
