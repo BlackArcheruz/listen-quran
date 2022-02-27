@@ -70,6 +70,11 @@ function QuranPage(){
             margin:1rem 0;
             font-weight:500;
         }
+        @media (max-width: 640px){
+            .surah-audio1{
+                width: 40%;
+            }
+        }
     `
     const QuranContent = styled.div`
         display: flex;
