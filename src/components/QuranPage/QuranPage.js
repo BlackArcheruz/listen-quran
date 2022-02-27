@@ -97,6 +97,7 @@ function QuranPage(){
             width:100%;
             position:fixed;
             bottom:0;
+            z-index: 100;
         }
         .sura-arab{
             font-weight:400;
