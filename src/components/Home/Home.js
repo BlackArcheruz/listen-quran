@@ -20,6 +20,7 @@ function Home(props){
     useEffect(()=>{
         fetchData()
     },[])
+    document.title = `Listen-Quran`
     const LoadingMessage = styled.div`
         display: flex;
         align-items: center;

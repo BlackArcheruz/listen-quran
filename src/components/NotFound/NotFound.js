@@ -38,6 +38,7 @@ function NotFound(){
           margin-bottom: 2rem;  
         }
     `
+    document.title = `${t('NotFound')} - Listen-Quran`
     return(
         <StyledHeading>
             <img src={Logo} alt="logo" width={128} height={128} />

@@ -52,11 +52,19 @@ function QuranPage(){
     padding-left:2.5rem;
     `
     const Surah = styled.div`
+        display: flex;
+        flex-direction: column;
         .surah{
             text-align: right;
             font-size: 32px;
             color:rgb(59 130 256);
             font-weight:400;
+            justify-content: flex-end;
+        }
+        .surah-audio1{
+            align-self: flex-end;
+            margin: 10px 0;
+            width: 25%;
         }
         .translation{
             margin:1rem 0;
@@ -162,6 +170,7 @@ function QuranPage(){
     }
     useEffect(()=>{
        fetchData()
+
         // eslint-disable-next-line
     },[id,t('Translation')])
     const arr = data?.data?.map(oyat=>oyat.ayahs.map(oyat=>oyat));
@@ -173,6 +182,9 @@ function QuranPage(){
             'translate': translation[index]
         }
     })
+    if(data !== ''){
+        document.title=`${id}${t('-sura')} ${data?.data[0].englishName} - Listen-Quran`
+    }
     let PreviousBtn;
     // eslint-disable-next-line
     if(id == 1 ){
@@ -219,6 +231,10 @@ function QuranPage(){
         {arr !== undefined ? 
         <Surah>
         <h3 className="surah">{ayah.text.text}</h3>
+        <audio className="surah-audio1" controls>
+            <source src={ayah.text.audio} type="audio/mpeg"/>
+            ${t('Support')}
+        </audio>
         <h3 className="translation">{ayah.text.numberInSurah}.{ayah.translate.text}</h3>
         </Surah> : <LoadingMessage>Yuklanmoqda...</LoadingMessage>}
         </ContainerSurah>

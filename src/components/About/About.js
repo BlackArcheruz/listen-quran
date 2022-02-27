@@ -32,10 +32,11 @@ const AboutContainer = styled.div`
     }
 
 `
-
+    
 const About = ()=>{
     // eslint-disable-next-line
     const [t, i18n] = useTranslation()
+    document.title = `${t('who')} -  Listen-Quran`
     return(
         <>
                 <AboutContainer>

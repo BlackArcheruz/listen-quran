@@ -35,6 +35,7 @@ const DestinationContainer = styled.div`
 const Destination = ()=>{
     // eslint-disable-next-line
     const [t, i18n] = useTranslation()
+    document.title = `${t('Destination')} -  Listen-Quran`
     return(
         <>
         <DestinationContainer>

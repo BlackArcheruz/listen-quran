@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 const Settings = (props)=>{
      // eslint-disable-next-line
   const [t,i18n] = useTranslation()
+  document.title = `${t('Settings')} -  Listen-Quran`
   var language = localStorage.getItem('Language')
   const setLanguage = (e)=>{
     switch (e.target.value) {
