@@ -87,8 +87,8 @@ const Settings = (props)=>{
         <div className="colors">
         <button style={{background: "rgb(59 130 246)", width: "35px", height: "35px", borderRadius: "50%", margin: '0 5px'}} onClick={props.setPrimaryColor} value="rgb(59 130 246)">{color === "rgb(59 130 246)" ? <TickCircle/> : ''}</button>
         <button style={{background: "rgb(168 85 247)", width: "35px", height: "35px", borderRadius: "50%", margin: '0 5px'}} onClick={props.setPrimaryColor} value="rgb(168 85 247)">{color === "rgb(168 85 247)" ? <TickCircle/> : ''}</button>
-        <button style={{background: "rgb(159 18 57)", width: "35px", height: "35px", borderRadius: "50%", margin: '0 5px'}} onClick={props.setPrimaryColor} value="rgb(159 18 57)">{color === "rgb(236 72 153)" ? <TickCircle/> : ''}</button>
-        <button style={{background: "rgb(244 63 94)", width: "35px", height: "35px", borderRadius: "50%", margin: '0 5px'}} onClick={props.setPrimaryColor} value="rgb(244 63 94)">{color === "rgb(244 63 94)" ? <TickCircle/> : ''}</button>
+        <button style={{background: "rgb(236 72 153)", width: "35px", height: "35px", borderRadius: "50%", margin: '0 5px'}} onClick={props.setPrimaryColor} value="rgb(236 72 153)">{color === "rgb(236 72 153)" ? <TickCircle/> : ''}</button>
+        <button style={{background: "rgb(159 18 57)", width: "35px", height: "35px", borderRadius: "50%", margin: '0 5px'}} onClick={props.setPrimaryColor} value="rgb(159 18 57)">{color === "rgb(159 18 57)" ? <TickCircle/> : ''}</button>
         <button style={{background: "rgb(34 197 94)", width: "35px", height: "35px", borderRadius: "50%", margin: '0 5px'}} onClick={props.setPrimaryColor} value="rgb(34 197 94)">{color === "rgb(34 197 94)" ? <TickCircle/> : ''}</button>
         <button style={{background: "rgb(234 179 8)", width: "35px", height: "35px", borderRadius: "50%", margin: '0 5px'}} onClick={props.setPrimaryColor} value="rgb(234 179 8)">{color === "rgb(234 179 8)" ? <TickCircle/> : ''}</button>
         </div>
