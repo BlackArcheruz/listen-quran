@@ -22,7 +22,7 @@ function Card (props){
             transition-property: all;
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
             transition-duration: 300ms;
-            border-color: rgb(59 130 246);
+            border-color: ${props.primaryColor};
         }
         *{
             padding:0.2rem 0;
@@ -31,7 +31,7 @@ function Card (props){
             margin-top: auto;
         }
         .sura-nom{
-            color: rgb(59 130 246);
+            color: ${props.primaryColor};
         }
     `
     return(

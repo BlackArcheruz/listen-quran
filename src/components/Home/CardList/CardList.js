@@ -36,7 +36,7 @@ function CardList (props){
         <CardGrid>
             {props.data.data.surahs.references.map(surah=>(
                 <Fragment key={surah.number}>
-                    <Card data={surah}/>
+                    <Card data={surah} primaryColor={props.primaryColor}/>
                 </Fragment>
             ))}
         </CardGrid>

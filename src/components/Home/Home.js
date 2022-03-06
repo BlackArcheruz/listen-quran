@@ -43,7 +43,7 @@ function Home(props){
             height: 50px;
             width: 200px;
             border-radius: 10px;
-            background: rgb(96 165 250);
+            background: ${props.primaryColor};
         }
         .text{
             height: 30px;
@@ -120,7 +120,7 @@ function Home(props){
 
     return(
         <>
-        {data.data !== undefined ? <Showcase data={data} editions={props.editions}/> : <LoadingMessage>
+        {data.data !== undefined ? <Showcase data={data} editions={props.editions} primaryColor={props.primaryColor}/> : <LoadingMessage>
             <div className="heading"></div>
             <div className="text"></div>
             <div className="grid">

@@ -1,9 +1,11 @@
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next';
+import {TickCircle} from 'iconsax-react'
 
 const Settings = (props)=>{
      // eslint-disable-next-line
   const [t,i18n] = useTranslation()
+  const color = localStorage.getItem('color')
   document.title = `${t('Settings')} -  Listen-Quran`
   var language = localStorage.getItem('Language')
   const setLanguage = (e)=>{
@@ -54,6 +56,9 @@ const Settings = (props)=>{
                     margin: .5rem 0;
                 }
             }
+            .colors{
+                flex-direction: row;
+            }
         }
     `
     return(
@@ -75,6 +80,18 @@ const Settings = (props)=>{
             <option value={'uz'} selected={language === 'uz'}> O'zbek</option>
             <option value={'uz_cyril'} selected={language === 'uz_cyril'}> Ўзбек</option>
         </select>
+
+        </div>
+        <div>
+        <h1>{t('select_color')} </h1>
+        <div className="colors">
+        <button style={{background: "rgb(59 130 246)", width: "35px", height: "35px", borderRadius: "50%", margin: '0 5px'}} onClick={props.setPrimaryColor} value="rgb(59 130 246)">{color === "rgb(59 130 246)" ? <TickCircle/> : ''}</button>
+        <button style={{background: "rgb(168 85 247)", width: "35px", height: "35px", borderRadius: "50%", margin: '0 5px'}} onClick={props.setPrimaryColor} value="rgb(168 85 247)">{color === "rgb(168 85 247)" ? <TickCircle/> : ''}</button>
+        <button style={{background: "rgb(236 72 153)", width: "35px", height: "35px", borderRadius: "50%", margin: '0 5px'}} onClick={props.setPrimaryColor} value="rgb(236 72 153)">{color === "rgb(236 72 153)" ? <TickCircle/> : ''}</button>
+        <button style={{background: "rgb(244 63 94)", width: "35px", height: "35px", borderRadius: "50%", margin: '0 5px'}} onClick={props.setPrimaryColor} value="rgb(244 63 94)">{color === "rgb(244 63 94)" ? <TickCircle/> : ''}</button>
+        <button style={{background: "rgb(34 197 94)", width: "35px", height: "35px", borderRadius: "50%", margin: '0 5px'}} onClick={props.setPrimaryColor} value="rgb(34 197 94)">{color === "rgb(34 197 94)" ? <TickCircle/> : ''}</button>
+        <button style={{background: "rgb(234 179 8)", width: "35px", height: "35px", borderRadius: "50%", margin: '0 5px'}} onClick={props.setPrimaryColor} value="rgb(234 179 8)">{color === "rgb(234 179 8)" ? <TickCircle/> : ''}</button>
+        </div>
         </div>
         </SettingsContainer>
     )

@@ -2,7 +2,10 @@ import styled from 'styled-components'
 import CardList from '../CardList/CardList'
 import { useTranslation } from 'react-i18next';
 
-const ShowcaseContainer = styled.div`
+
+
+function Showcase (props){
+    const ShowcaseContainer = styled.div`
     padding:2rem;
     text-align:center;
     display:flex;
@@ -14,14 +17,12 @@ const ShowcaseContainer = styled.div`
         font-weight:500;
     }
     h1{
-        color: rgb(59 130 246);
+        color: ${props.primaryColor};
         font-size:50px;
         font-weight: 900;
     }
 
 `
-
-function Showcase (props){
     const EditionServer = localStorage.getItem('Edition')
     const Editions = props.editions.map(edition=>edition.Server !== EditionServer ? undefined : edition.name)
     const edition = Editions.filter(el=>el!==undefined)
@@ -32,7 +33,7 @@ function Showcase (props){
         <ShowcaseContainer>
             <h1>{t('Qur\'on')}</h1>
             <p>{t('Listen')}</p>
-            <CardList data={props.data}/>
+            <CardList data={props.data} primaryColor={props.primaryColor}/>
             <p>{t('Qori')} {edition}</p>
             
         </ShowcaseContainer>

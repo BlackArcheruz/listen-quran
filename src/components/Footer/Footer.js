@@ -21,7 +21,7 @@ const Footer = ()=>{
     return(
         <FooterContainer>
             <div>
-            <p>Listen Quran &copy; {year}</p>
+            <p>Listen-Quran &copy; {year}</p>
             </div>
         </FooterContainer>
     )

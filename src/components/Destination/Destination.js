@@ -2,7 +2,9 @@ import styled from "styled-components";
 import Logo from '../../Images/logo.png'
 import { useTranslation } from 'react-i18next';
 
-const DestinationContainer = styled.div`
+
+const Destination = (props)=>{
+    const DestinationContainer = styled.div`
     display:flex;
     justify-content:center;
     align-items:center;
@@ -12,7 +14,7 @@ const DestinationContainer = styled.div`
     h1{
         font-weight: 900;
         padding:1rem 0;
-        color:rgb(59 130 246);
+        color:${props.primaryColor};
     }
     p{
         font-weight:500;
@@ -28,11 +30,11 @@ const DestinationContainer = styled.div`
     }
 
     a{
-        color:rgb(59 130 246);
+        color:${props.primaryColor};
     }
 
 `
-const Destination = ()=>{
+
     // eslint-disable-next-line
     const [t, i18n] = useTranslation()
     document.title = `${t('Destination')} -  Listen-Quran`

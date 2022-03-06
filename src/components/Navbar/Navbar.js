@@ -86,7 +86,7 @@ function Navbar (props){
             font-size: 20px;
         }
         button svg:hover, button path:hover{
-            color: rgb(59 130 246);
+            color: ${props.primaryColor};
             transition: all ease-in-out 300ms;
         }
             margin: 0 1rem;
@@ -98,7 +98,7 @@ function Navbar (props){
 
                 &:hover{
                     text-decoration:underline;
-                    color:rgb(59 130 246);
+                    color:${props.primaryColor};
                     cursor:pointer;
                     transition: ease all 400ms;
                 }

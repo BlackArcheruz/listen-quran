@@ -7,10 +7,12 @@ import {Next, Previous} from 'iconsax-react'
 import axios from 'axios'
 import NotFound from '../NotFound/NotFound'
 import { useTranslation } from 'react-i18next';
+// import {lighten} from 'polished'
 
-function QuranPage(){
+function QuranPage(props){
     // eslint-disable-next-line
     const [t, i18n] = useTranslation()
+    
 
     const LoadingMessage = styled.div`
     display: flex;
@@ -35,7 +37,7 @@ function QuranPage(){
             margin: 1rem 0;
             width: 200px;
             border-radius: 10px;
-            background: rgb(96 165 250);
+            background: ${props.primaryColor};
         }
         .text{
             height: 20px;
@@ -57,7 +59,7 @@ function QuranPage(){
         .surah{
             text-align: right;
             font-size: 32px;
-            color:rgb(59 130 256);
+            color:${props.primaryColor};
             font-weight:400;
             justify-content: flex-end;
         }
@@ -91,7 +93,7 @@ function QuranPage(){
             font-weight: 500;   
         }
         .sura-nom{
-            color:rgb(59 130 256);
+            color:${props.primaryColor};
         }
         .audio{
             width:100%;
@@ -101,7 +103,7 @@ function QuranPage(){
         }
         .sura-arab{
             font-weight:400;
-            color:rgb(59 130 256);
+            color:${props.primaryColor};
         }
 
     `
@@ -110,9 +112,10 @@ function QuranPage(){
     position:fixed;
     bottom: 15px;
     left: 46%;
-    
+    z-index:1000;
+
     a{
-        z-index:2;
+        z-index:1000;
     }
     @media (min-width:750px) and (max-width: 1000px){
         left: 45%;
@@ -131,9 +134,10 @@ function QuranPage(){
     position:fixed;
     bottom: 15px;
     right: 46%;
-    
+    z-index:1000;
+
     a{
-        z-index:2;
+        z-index:1000;
     }
     @media (min-width:750px) and (max-width: 1000px){
         right: 45%;
@@ -170,15 +174,15 @@ function QuranPage(){
             .catch(err=>{
                 setError(err)
             })
-        setData(res.data)
+            setData(res.data)
         localStorage.setItem(`${id}-${t('Translation')} surah`, JSON.stringify(res.data))
         }
     }
+
     useEffect(()=>{
        fetchData()
-
         // eslint-disable-next-line
-    },[id,t('Translation')])
+    },[id])
     const arr = data?.data?.map(oyat=>oyat.ayahs.map(oyat=>oyat));
     const surah = arr !== undefined ? arr[0]?.map(surah=>surah): null;
     const translation = arr !== undefined ? arr[1]?.map(surah=>surah): null;

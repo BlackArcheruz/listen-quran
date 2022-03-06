@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Logo from '../../Images/logo.png'
 import { useTranslation } from 'react-i18next';
 
-function NotFound(){
+function NotFound(props){
     // eslint-disable-next-line
     const [t, i18n] = useTranslation()
     const StyledHeading = styled.div`
@@ -18,7 +18,7 @@ function NotFound(){
         }
         a{
             padding: .6rem 1rem;
-            background: rgb(59 130 246);
+            background: ${props.primaryColor};
             border-radius: 5px;
             color: #fff;
             &:hover{
@@ -32,7 +32,7 @@ function NotFound(){
         }
         h4{
             margin: .6rem 0;
-            color: rgb(59 130 246);
+            color: ${props.primaryColor};
         }
         p{
           margin-bottom: 2rem;  

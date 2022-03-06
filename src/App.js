@@ -13,6 +13,7 @@ import axios from 'axios'
 import Settings from './components/Settings/Settings.js'
 
 function App() {
+  const [primaryColor, setPrimaryColor] = useState("rgb(59 130 256)")
   const [data, setData] = useState();
   const [theme, setTheme] = useState("light");
   const isDarkTheme = theme === "dark";
@@ -26,7 +27,6 @@ function App() {
     let res = await axios.get('https://www.mp3quran.net/api/_arabic.json');
     setData(res.data)
 }
-
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia &&
@@ -37,6 +37,13 @@ function App() {
       setTheme("dark");
     }
   }, []);
+  const setNewPrimaryColor = (e)=>{
+    e.preventDefault()
+    setPrimaryColor(e.target.value !== undefined ? e.target.value : primaryColor) 
+    if(e.target.value !== undefined){
+      localStorage.setItem('color', e.target.value) 
+    }
+  }
   useMemo(()=>{
     fetchData()
   },[])
@@ -52,10 +59,14 @@ function App() {
     if(!Qori){
       localStorage.setItem('Edition','https://server8.mp3quran.net/afs')
     }
-    
+  let color = localStorage.getItem('color')
+    if(!color){
+      localStorage.setItem('color', primaryColor)
+    }  
   const setNewEdition = (e)=>{
     localStorage.setItem('Edition',e.target.value)
   }
+  
   return (
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
     <>
@@ -63,28 +74,28 @@ function App() {
     <Router>
       <Switch>
        <Route exact path="/">
-         <Navbar toggleTheme={toggleTheme} theme={theme}/>
-         <Home editions={editions}/>
+         <Navbar toggleTheme={toggleTheme} theme={theme} primaryColor={primaryColor !== color ? color : primaryColor}/>
+         <Home editions={editions} primaryColor={primaryColor !== color ? color : primaryColor}/>
          <Footer/>
         </Route>
         <Route exact path="/about">
-        <Navbar toggleTheme={toggleTheme} theme={theme}/>
-         <About/>
+        <Navbar toggleTheme={toggleTheme} theme={theme} primaryColor={primaryColor !== color ? color : primaryColor}/>
+         <About primaryColor={primaryColor !== color ? color : primaryColor}/>
         </Route>
         <Route exact path="/destination">
-        <Navbar toggleTheme={toggleTheme} theme={theme}/>
-         <Destination/>
+        <Navbar toggleTheme={toggleTheme} theme={theme} primaryColor={primaryColor !== color ? color : primaryColor}/>
+         <Destination primaryColor={primaryColor !== color ? color : primaryColor}/>
         </Route>
         <Route exact path="/surah/:id">
-        <Navbar toggleTheme={toggleTheme} theme={theme}/>
-          <QuranPage/>
+        <Navbar toggleTheme={toggleTheme} theme={theme} primaryColor={primaryColor !== color ? color : primaryColor}/>
+          <QuranPage primaryColor={primaryColor !== color ? color : primaryColor}/>
         </Route>
         <Route exact path="/settings">
-        <Navbar toggleTheme={toggleTheme} theme={theme}/>
-          <Settings editions={editions} setNewEdition={setNewEdition}/>
+        <Navbar toggleTheme={toggleTheme} theme={theme} primaryColor={color}/>
+          <Settings editions={editions} setNewEdition={setNewEdition} setPrimaryColor={setNewPrimaryColor}/>
         </Route>
         <Route exact path="*">
-          <NotFound/>
+          <NotFound primaryColor={primaryColor !== color ? color : primaryColor}/>
         </Route>
       </Switch>
     </Router>
