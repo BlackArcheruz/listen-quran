@@ -61,7 +61,7 @@ function App() {
     }
   let color = localStorage.getItem('color')
     if(!color){
-      localStorage.setItem('color', primaryColor)
+      localStorage.setItem('color', "rgb(59 130 256)")
     }  
   const setNewEdition = (e)=>{
     localStorage.setItem('Edition',e.target.value)
