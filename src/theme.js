@@ -30,29 +30,35 @@ export const GlobalStyles = createGlobalStyle`
   }
   .card{
     border: 2px solid;
+    background: ${({ theme }) => theme.newBody};
     border-color: ${({ theme }) => theme.loadingText} !important; 
     &>*{
       background: ${({ theme }) => theme.loadingText} !important; 
     }
   }
+  .primary-card{
+    background: ${({ theme }) => theme.newBody};
+  }
   select{
-    background: ${({ theme }) => theme.body} !important;
+    background: ${({ theme }) => theme.newBody} !important;
     color: ${({ theme }) => theme.text} !important;  
   }
   option{
-    background: ${({ theme }) => theme.body} !important;
+    background: ${({ theme }) => theme.newBody} !important;
     color: ${({ theme }) => theme.text} !important;  
   }
 `;
 
 export const lightTheme = {
   body: "#f1f1f1",
+  newBody: "#e8e8e8",
   text: "#121620",
   loadingText: "rgb(148 163 184)"
 };
 
 export const darkTheme = {
   body: "#121620",
+  newBody: '#1e2433',
   text: "#f1f1f1",
   loadingText: "rgb(203 213 225)"
 };

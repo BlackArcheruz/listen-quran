@@ -12,7 +12,6 @@ const Footer = ()=>{
             padding: 2rem;
             border-top: 2px solid rgb(209 213 219);
             p{
-                color: rgb(209 213 219);
                 font-size: larger;
             }
         }

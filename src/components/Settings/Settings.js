@@ -39,9 +39,10 @@ const Settings = (props)=>{
         }
         select{
             outline: none;
-            padding: .7rem;
+            padding: 1rem .8rem;
             box-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
             border:  2px solid rgb(209 213 219);
+            border-radius: 10px;
             option{
                 border: 2px solid rgb(209 213 219);
                 outline: none;

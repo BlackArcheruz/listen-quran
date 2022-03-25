@@ -6,13 +6,14 @@ function Card (props){
     // eslint-disable-next-line
     const [t, i18n] = useTranslation()
     const StyledCard = styled.div`
+    .primary-card{
         height: 200px;
         display:flex;
         flex-direction:column;
         justify-content:center;
-        border-radius:5px;
+        border-radius:10px;
         box-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-        padding:1rem;
+        padding:2rem 1rem;
         margin:0.5rem 0;
         border: 2px solid rgb(209 213 219);
         &:hover{
@@ -25,7 +26,7 @@ function Card (props){
             border-color: ${props.primaryColor};
         }
         *{
-            padding:0.2rem 0;
+            padding:0.1rem 0;
         }
         h5{
             margin-top: auto;
@@ -33,15 +34,18 @@ function Card (props){
         .sura-nom{
             color: ${props.primaryColor};
         }
+    }
     `
     return(
         <Link to={`/surah/${props.data.number}`}>
         <StyledCard>
+        <div className="primary-card">
             <h3>{props.data.number}{t('-sura')}</h3>
             <h4>{props.data.numberOfAyahs}{t('verse')}</h4>
             <h2 className="sura-nom">{props.data.englishName}</h2>
             <p className="sura-nom">{props.data.name}</p>
             <h5>{t('relevation')} {props.data.revelationType === 'Meccan' ? t('Meccan') : t('Medinan')}</h5>
+            </div>
         </StyledCard>
         </Link>
     )

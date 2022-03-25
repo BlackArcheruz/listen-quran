@@ -28,7 +28,7 @@ function Home(props){
         font-size:32px;
         text-align:center;
         font-weight:700;
-        margin:2rem;
+        margin:3rem;
         animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 
         @keyframes pulse {
@@ -53,7 +53,7 @@ function Home(props){
         }
         .card{
             height: 200px;
-            border-radius: 5px;
+            border-radius: 10px;
             width: 300px;
             padding: 1rem;
             margin: 2rem 0;
@@ -126,6 +126,56 @@ function Home(props){
             <div className="grid">
                 <div className="card">
                     <div className="card-text"></div>
+                    <div className="card-text"></div>
+                    <div className="card-text"></div>
+                </div>
+                <div className="card">
+                <div className="card-text"></div>
+                    <div className="card-text"></div>
+                    <div className="card-text"></div>
+                </div>
+                <div className="card">
+                <div className="card-text"></div>
+                    <div className="card-text"></div>
+                    <div className="card-text"></div>
+                </div>
+                <div className="card">
+                <div className="card-text"></div>
+                    <div className="card-text"></div>
+                    <div className="card-text"></div>
+                </div>
+                <div className="card">
+                <div className="card-text"></div>
+                    <div className="card-text"></div>
+                    <div className="card-text"></div>
+                </div>
+                <div className="card">
+                <div className="card-text"></div>
+                    <div className="card-text"></div>
+                    <div className="card-text"></div>
+                </div>
+                <div className="card">
+                <div className="card-text"></div>
+                    <div className="card-text"></div>
+                    <div className="card-text"></div>
+                </div>
+                <div className="card">
+                <div className="card-text"></div>
+                    <div className="card-text"></div>
+                    <div className="card-text"></div>
+                </div>
+                <div className="card">
+                <div className="card-text"></div>
+                    <div className="card-text"></div>
+                    <div className="card-text"></div>
+                </div>
+                <div className="card">
+                <div className="card-text"></div>
+                    <div className="card-text"></div>
+                    <div className="card-text"></div>
+                </div>
+                <div className="card">
+                <div className="card-text"></div>
                     <div className="card-text"></div>
                     <div className="card-text"></div>
                 </div>

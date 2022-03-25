@@ -51,7 +51,7 @@ function Navbar (props){
         align-items: center;
         font-weight: 700;
         justify-content:space-between;
-        padding: 1rem 2rem;
+        padding: 1rem 1rem 1rem 2rem;
         box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
         .logo{
             display:flex;
@@ -77,9 +77,8 @@ function Navbar (props){
         ul{
             display:flex;
             padding: 1rem;
-            justify-self:flex-end;
             align-items:center;
-            justify-content:center;
+            justify-content:flex-end;
         }
         li{
           button svg{
