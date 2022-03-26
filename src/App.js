@@ -11,6 +11,7 @@ import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import axios from 'axios'
 import Settings from './components/Settings/Settings.js'
+import Tasbeh from './components/Tasbeh/Tasbeh'
 
 function App() {
   const [primaryColor, setPrimaryColor] = useState("rgb(59 130 256)")
@@ -93,6 +94,10 @@ function App() {
         <Route exact path="/settings">
         <Navbar toggleTheme={toggleTheme} theme={theme} primaryColor={color}/>
           <Settings editions={editions} setNewEdition={setNewEdition} setPrimaryColor={setNewPrimaryColor}/>
+        </Route>
+        <Route exact path="/tasbeh">
+        <Navbar toggleTheme={toggleTheme} theme={theme} primaryColor={color}/>
+        <Tasbeh primaryColor={color}/>
         </Route>
         <Route exact path="*">
           <NotFound primaryColor={primaryColor !== color ? color : primaryColor}/>
