@@ -38,7 +38,7 @@ const resources = {
       'Settings': 'Settings',
       'Support': 'Your browser does not support the audio tag.',
       'select_color': 'Select Color:',
-      'tasbeh': 'Tasbeh',
+      'tasbeh': 'Rosary',
       'namoz': 'Prayer times'
     }
   },
