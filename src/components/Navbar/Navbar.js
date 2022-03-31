@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {Link} from 'react-router-dom';
 import Logo from '../../Images/logo.png';
 import { stack as Menu } from 'react-burger-menu'
-import {Sun1, Setting2, Moon, ArchiveBook, Award, Barcode, Timer} from "iconsax-react"
+import {Sun1, Setting2, Moon, ArchiveBook, Award, Barcode, Timer, Timer1} from "iconsax-react"
 import { useTranslation } from 'react-i18next';
 
 function Navbar (props){
@@ -135,7 +135,8 @@ function Navbar (props){
                 <a id="about" className="menu-item" style={{display: "flex",alignItems: "center",justifyContent:'flex-start', margin: "1rem 0", fontWeight: "600", fontSize: "1.15em", color: (props.theme === 'dark' ? "#f1f1f1" : "#121620")}} href="/about"><ArchiveBook variant={props.theme === "dark"? 'Linear' : 'Bold'} color={props.theme === "dark"? "#f1f1f1": "#121620"} style={{marginRight: '5px'}}/>{t('About')}</a>
                 <a id="destination" className="menu-item" style={{display: "flex",alignItems: "center", justifyContent:'flex-start',margin: "1rem 0", fontWeight: "600", fontSize: "1.15em", color: (props.theme === 'dark' ? "#f1f1f1" : "#121620")}} href="/destination"><Award variant={props.theme === "dark"? 'Linear' : 'Bold'} color={props.theme === "dark"? "#f1f1f1": "#121620"} style={{marginRight: '5px'}}/> {t('Destination')}</a>
                 <a href="/tasbeh" id="tasbeh" className="menu-item" style={{display: "flex",alignItems: "center", justifyContent:'flex-start', margin: "1rem 0", fontWeight: "600", fontSize: "1.15em", color: (props.theme === 'dark' ? "#f1f1f1" : "#121620")}}><Barcode variant={props.theme === "dark"? 'Linear' : 'Bold'} color={props.theme === "dark"? "#f1f1f1": "#121620"} style={{marginRight: '5px'}}/> {t('tasbeh')}</a> 
-                <a href="https://namozvaqtlari.vercel.app/" id="tasbeh" className="menu-item" style={{display: "flex",alignItems: "center", justifyContent:'flex-start', margin: "1rem 0", fontWeight: "600", fontSize: "1.15em", color: (props.theme === 'dark' ? "#f1f1f1" : "#121620")}}><Timer variant={props.theme === "dark"? 'Linear' : 'Bold'} color={props.theme === "dark"? "#f1f1f1": "#121620"} style={{marginRight: '5px'}}/> {t('namoz')}</a> 
+                <a href="https://namozvaqtlari.vercel.app/" id="tasbeh" className="menu-item" style={{display: "flex",alignItems: "center", justifyContent:'flex-start', margin: "1rem 0", fontWeight: "600", fontSize: "1.15em", color: (props.theme === 'dark' ? "#f1f1f1" : "#121620")}}><Timer1 variant={props.theme === "dark"? 'Linear' : 'Bold'} color={props.theme === "dark"? "#f1f1f1": "#121620"} style={{marginRight: '5px'}}/> {t('namoz')}</a> 
+               <a href="/taqvim" id="settings" className="menu-item" style={{display: "flex",alignItems: "center", justifyContent:'flex-start', margin: "1rem 0", fontWeight: "600", fontSize: "1.15em", color: (props.theme === 'dark' ? "#f1f1f1" : "#121620")}}><Timer variant={props.theme === "dark"? 'Linear' : 'Bold'} color={props.theme === "dark"? "#f1f1f1": "#121620"} style={{marginRight: '5px'}}/> {t('Taqvim')}</a> 
                 <a href="/settings" id="settings" className="menu-item" style={{display: "flex",alignItems: "center", justifyContent:'flex-start', margin: "1rem 0", fontWeight: "600", fontSize: "1.15em", color: (props.theme === 'dark' ? "#f1f1f1" : "#121620")}}><Setting2 variant={props.theme === "dark"? 'Linear' : 'Bold'} color={props.theme === "dark"? "#f1f1f1": "#121620"} style={{marginRight: '5px'}}/> {t('Settings')}</a> 
                 
             </Menu>

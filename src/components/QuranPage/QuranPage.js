@@ -3,16 +3,15 @@ import { Fragment, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import AudioPlayer from 'react-h5-audio-player';
 import { Link } from 'react-router-dom';
-import {Next, Previous} from 'iconsax-react'
+import {Next, Previous, Play, Pause, VolumeHigh, VolumeCross} from 'iconsax-react'
 import axios from 'axios'
 import NotFound from '../NotFound/NotFound'
 import { useTranslation } from 'react-i18next';
-// import {lighten} from 'polished'
 
 function QuranPage(props){
     // eslint-disable-next-line
     const [t, i18n] = useTranslation()
-    
+
 
     const LoadingMessage = styled.div`
     display: flex;
@@ -105,9 +104,19 @@ function QuranPage(props){
             font-weight:400;
             color:${props.primaryColor};
         }
-
+        .rhap_progress-filled{
+            color: ${props.primaryColor};
+            background: ${props.primaryColor};   
+        }
+        .rhap_progress-indicator, .rhap_volume-indicator{
+            color: ${props.primaryColor};
+            background: ${props.primaryColor};  
+        }
     `
-
+    const PlayIcon = styled.div`
+        position:fixed;
+        bottom: 8px;
+    `
     const BtnPrevious = styled.div`
     position:fixed;
     bottom: 15px;
@@ -209,6 +218,9 @@ function QuranPage(props){
     }else{
         NextBtn = <BtnNext><Link to={`/surah/${pageLink === (data !== '' ? data?.data[0].number : id) ? pageLink + 1 : pageLink + 2}`}> <Next color='#868686'/></Link></BtnNext>
     }
+
+    const surahUrl = data !== '' ? (data?.data[0].number.toString().length === 1 ? `${edition}/00${data?.data[0].number}.mp3` : '')||(data?.data[0].number.toString().length === 2 ? `${edition}/0${data?.data[0].number}.mp3` : '')||(data?.data[0].number.toString().length === 3 ? `${edition}/${data?.data[0].number}.mp3` : '') : null
+
     return(
         <>
          {!error ?
@@ -231,9 +243,14 @@ function QuranPage(props){
             {data !== '' ? <AudioPlayer
                     autoPlay
                     className='audio'
-                    src={(data?.data[0].number.toString().length === 1 ? `${edition}/00${data?.data[0].number}.mp3` : '')||(data?.data[0].number.toString().length === 2 ? `${edition}/0${data?.data[0].number}.mp3` : '')||(data?.data[0].number.toString().length === 3 ? `${edition}/${data?.data[0].number}.mp3` : '')}
+                    src={surahUrl}
                     showJumpControls={false}
-                    
+                    customIcons={{
+                        play: <PlayIcon><Play color='#868686'/></PlayIcon>,
+                        pause: <PlayIcon><Pause color='#868686' /></PlayIcon>,
+                        volume: <VolumeHigh color='#868686' />,
+                        volumeMute: <VolumeCross color='#868686' />,
+                    }}
             /> : null}
         </QuranContent>
         {mergedArr?.map(ayah=>(
@@ -241,10 +258,6 @@ function QuranPage(props){
         {arr !== undefined ? 
         <Surah>
         <h3 className="surah">{ayah.text.text}</h3>
-        <audio className="surah-audio1" controls>
-            <source src={ayah.text.audio} type="audio/mpeg"/>
-            ${t('Support')}
-        </audio>
         <h3 className="translation">{ayah.text.numberInSurah}.{ayah.translate.text}</h3>
         </Surah> : <LoadingMessage>Yuklanmoqda...</LoadingMessage>}
         </ContainerSurah>
