@@ -113,12 +113,12 @@ function QuranPage(props){
             background: ${props.primaryColor};  
         }
     `
-    const PlayIcon = styled.div`
-        position:fixed;
-        bottom: 8px;
-        left: 49%;
-        right: 49%; 
-    `
+    // const PlayIcon = styled.div`
+    //     position:fixed;
+    //     bottom: 8px;
+    //     left: 49%;
+    //     right: 49%; 
+    // `
     const BtnPrevious = styled.div`
     position:fixed;
     bottom: 15px;
@@ -248,8 +248,8 @@ function QuranPage(props){
                     src={surahUrl}
                     showJumpControls={false}
                     customIcons={{
-                        play: <PlayIcon><Play color='#868686'/></PlayIcon>,
-                        pause: <PlayIcon><Pause color='#868686' /></PlayIcon>,
+                        play: <Play color='#868686' size="40"/>,
+                        pause: <Pause color='#868686' size="40"/>,
                         volume: <VolumeHigh color='#868686' />,
                         volumeMute: <VolumeCross color='#868686' />,
                     }}
