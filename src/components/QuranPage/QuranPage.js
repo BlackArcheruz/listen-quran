@@ -117,7 +117,7 @@ function QuranPage(props){
         position:fixed;
         bottom: 8px;
         left: 49%;
-        right: 50%;
+        right: 49%;
     `
     const BtnPrevious = styled.div`
     position:fixed;
