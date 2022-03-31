@@ -121,7 +121,7 @@ function QuranPage(props){
     // `
     const BtnPrevious = styled.div`
     position:fixed;
-    bottom: 13px;
+    bottom: 11px;
     left: 46%;
     z-index:1000;
 
@@ -143,7 +143,7 @@ function QuranPage(props){
     `
     const BtnNext = styled.div`
     position:fixed;
-    bottom: 13px;
+    bottom: 11px;
     right: 46%;
     z-index:1000;
 
