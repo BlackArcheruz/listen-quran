@@ -116,7 +116,7 @@ function QuranPage(props){
     const PlayIcon = styled.div`
         position:fixed;
         bottom: 8px;
-        left: 50%;
+        left: 48%;
         right: 50%;
     `
     const BtnPrevious = styled.div`
