@@ -203,14 +203,8 @@ const Taqvim =(props)=>{
         	<h1>{kun.id}-{t('kun')}</h1>
         	<h2>{t('saharlik_vaqti')}</h2>
         	<h2>{kun.saharlik}</h2>
-            <h4>{t('saharlik')}</h4>
-            <h5 className="duo">نَوَيْتُ أَنْ أَصُومَ صَوْمَ شَهْرَ رَمَضَانَ مِنَ الْفَجْرِ إِلَى الْمَغْرِبِ، خَالِصًا لِلهِ تَعَالَى أَللهُ أَكْبَرُ</h5>
-            <p className="duo">{t('dua_saharlik')}</p>
             <h2>{t('iftarlik_vaqti')}</h2>
         	<h2>{kun.iftorlik}</h2>
-            <h4>{t('iftorlik')}</h4>
-            <h5 className="duo">اَللَّهُمَّ لَكَ صُمْتُ وَ بِكَ آمَنْتُ وَ عَلَيْكَ تَوَكَّلْتُ وَ عَلَى رِزْقِكَ أَفْتَرْتُ، فَغْفِرْلِى مَا قَدَّمْتُ وَ مَا أَخَّرْتُ بِرَحْمَتِكَ يَا أَرْحَمَ الرَّاحِمِينَ</h5>
-            <p className="duo">{t('dua_iftarlik')}</p>
             </div>
         </Card>))}
         </TaqvimContent>
