@@ -114,13 +114,10 @@ function QuranPage(props){
         }
     `
     const PlayIcon = styled.div`
-    svg{
         position:fixed;
         bottom: 8px;
-        left: 50%;
-        right: 50%; 
-    }
-
+        left: 49%;
+        right: 49%; 
     `
     const BtnPrevious = styled.div`
     position:fixed;
