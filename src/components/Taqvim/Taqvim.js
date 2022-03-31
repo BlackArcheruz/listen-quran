@@ -195,7 +195,7 @@ const Taqvim =(props)=>{
     `
 	return(
 		<TaqvimContainer>
-		<h1>Ramazon Taqvimi</h1>
+		<h1>{t('Taqvim')}</h1>
 		<TaqvimContent>
 		{data.map(kun=>(
 			<Card key={kun.id}>
