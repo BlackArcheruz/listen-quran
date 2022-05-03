@@ -89,7 +89,7 @@ function App() {
         </Route>
         <Route exact path="/surah/:id">
         <Navbar toggleTheme={toggleTheme} theme={theme} primaryColor={primaryColor !== color ? color : primaryColor}/>
-          <QuranPage primaryColor={primaryColor !== color ? color : primaryColor}/>
+          <QuranPage primaryColor={primaryColor !== color ? color : primaryColor} theme={theme}/>
         </Route>
         <Route exact path="/settings">
         <Navbar toggleTheme={toggleTheme} theme={theme} primaryColor={color}/>

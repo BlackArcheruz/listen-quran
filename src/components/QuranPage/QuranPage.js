@@ -248,10 +248,10 @@ function QuranPage(props){
                     src={surahUrl}
                     showJumpControls={false}
                     customIcons={{
-                        play: <Play color='#868686' size="32"/>,
-                        pause: <Pause color='#868686' size="32"/>,
-                        volume: <VolumeHigh color='#868686' />,
-                        volumeMute: <VolumeCross color='#868686' />,
+                        play: <Play color='#868686' size="32" variant={props.theme === "dark"? 'Linear' : 'Bold'}/>,
+                        pause: <Pause color='#868686' size="32" variant={props.theme === "dark"? 'Linear' : 'Bold'} />,
+                        volume: <VolumeHigh color='#868686'  variant={props.theme === "dark"? 'Linear' : 'Bold'}/>,
+                        volumeMute: <VolumeCross color='#868686' variant={props.theme === "dark"? 'Linear' : 'Bold'}/>,
                     }}
             /> : null}
         </QuranContent>
