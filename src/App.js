@@ -12,7 +12,6 @@ import Footer from './components/Footer/Footer';
 import axios from 'axios'
 import Settings from './components/Settings/Settings.js'
 import Tasbeh from './components/Tasbeh/Tasbeh'
-import Taqvim from './components/Taqvim/Taqvim'
 
 function App() {
   const [primaryColor, setPrimaryColor] = useState("rgb(59 130 256)")
@@ -99,10 +98,6 @@ function App() {
         <Route exact path="/tasbeh">
         <Navbar toggleTheme={toggleTheme} theme={theme} primaryColor={color}/>
         <Tasbeh primaryColor={color}/>
-        </Route>
-        <Route exact path="/taqvim">
-        <Navbar toggleTheme={toggleTheme} theme={theme} primaryColor={color}/>
-        <Taqvim primaryColor={color}/>
         </Route>
         <Route exact path="*">
           <NotFound primaryColor={primaryColor !== color ? color : primaryColor}/>
