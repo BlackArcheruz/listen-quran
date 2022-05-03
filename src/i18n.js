@@ -47,7 +47,10 @@ const resources = {
       'saharlik_vaqti': 'Closing time:',
       'iftarlik_vaqti': 'Opening time:',
       'kun': 'day',
-      'Taqvim': 'Ramadan almanac'
+      'Taqvim': 'Ramadan almanac',
+      'dark': 'Dark',
+      'light': 'Light',
+      'theme': 'Choose Theme:'
     }
   },
   uz: {
@@ -87,7 +90,10 @@ const resources = {
       'saharlik_vaqti': 'Saharlik vaqti:',
       'iftarlik_vaqti': 'Iftorlik vaqti:',
       'kun': 'kun',
-      'Taqvim': 'Ramazon taqvimi'
+      'Taqvim': 'Ramazon taqvimi',
+      'dark': 'Tungi',
+      'light': 'Kunduzgi',
+      'theme': 'Mavzuni tanlang:'
     },
     
   },
@@ -128,7 +134,10 @@ const resources = {
     'saharlik_vaqti': 'Саҳарлик вақти:',
     'iftarlik_vaqti': 'Ифторлик вақти:',
     'kun': 'кун',
-    'Taqvim': 'Рамазон тақвими'
+    'Taqvim': 'Рамазон тақвими',
+    'dark': 'Тунги',
+    'light': 'Кундузги',
+    'theme': 'Мавзуни танланг:'
     },
   }
 

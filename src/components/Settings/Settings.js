@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next';
-import {TickCircle} from 'iconsax-react'
+import {TickCircle, Sun1, Moon} from 'iconsax-react'
 
 const Settings = (props)=>{
      // eslint-disable-next-line
@@ -49,6 +49,12 @@ const Settings = (props)=>{
                 background: rgb(209 213 219);
             }
         }
+        .only_mobile{
+            display: none;
+            button{
+                margin: .5rem 0;
+            }
+        }
         @media(max-width: 640px){
             div{
                 flex-direction: column;
@@ -57,9 +63,29 @@ const Settings = (props)=>{
                     margin: .5rem 0;
                 }
             }
+            .only_mobile{
+                display: flex;
+                flex-direction: column;
+            }
             .colors{
                 flex-direction: row;
             }
+        }
+    `
+
+    const ThemeChanger = styled.button`
+        box-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        border:  2px solid rgb(209 213 219);
+        outline: none;
+        padding: 1rem .8rem;
+        border-radius: 10px;
+        font-size: 1.15em;
+        font-weight: 600;
+        display:flex;
+        align-items: center;
+
+        *{
+            margin: 0 5px;
         }
     `
     return(
@@ -82,6 +108,10 @@ const Settings = (props)=>{
             <option value={'uz_cyril'} selected={language === 'uz_cyril'}> Ўзбек</option>
         </select>
 
+        </div>
+        <div className="only_mobile">
+        <h1>{t('theme')}</h1>
+        <ThemeChanger onClick={props.toggleTheme}>{props.theme === "dark" ? <Moon variant="Linear" color="#f1f1f1"/> : <Sun1 variant="Bold" color="#121620"/>}{props.theme === 'dark' ? t('dark') : t('light')}</ThemeChanger>
         </div>
         <div>
         <h1>{t('select_color')} </h1>

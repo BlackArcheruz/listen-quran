@@ -47,6 +47,11 @@ export const GlobalStyles = createGlobalStyle`
     background: ${({ theme }) => theme.newBody} !important;
     color: ${({ theme }) => theme.text} !important;  
   }
+  .only_mobile{
+    button{
+      background: ${({ theme }) => theme.newBody} !important;
+    }
+  }
 `;
 
 export const lightTheme = {

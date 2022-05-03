@@ -93,7 +93,7 @@ function App() {
         </Route>
         <Route exact path="/settings">
         <Navbar toggleTheme={toggleTheme} theme={theme} primaryColor={color}/>
-          <Settings editions={editions} setNewEdition={setNewEdition} setPrimaryColor={setNewPrimaryColor}/>
+          <Settings editions={editions} setNewEdition={setNewEdition} setPrimaryColor={setNewPrimaryColor} theme={theme} toggleTheme={toggleTheme}/>
         </Route>
         <Route exact path="/tasbeh">
         <Navbar toggleTheme={toggleTheme} theme={theme} primaryColor={color}/>
