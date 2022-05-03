@@ -3,7 +3,7 @@ import { Fragment, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import AudioPlayer from 'react-h5-audio-player';
 import { Link } from 'react-router-dom';
-import {Next, Previous, Play, Pause, VolumeHigh, VolumeCross} from 'iconsax-react'
+import {Next, Previous, PlayCircle, Pause, VolumeHigh, VolumeCross} from 'iconsax-react'
 import axios from 'axios'
 import NotFound from '../NotFound/NotFound'
 import { useTranslation } from 'react-i18next';
@@ -211,14 +211,14 @@ function QuranPage(props){
     if(id == 1 ){
         PreviousBtn = null;
     }else{
-        PreviousBtn = <BtnPrevious><Link to={`/surah/${--pageLink}`}> <Previous color='#868686'/></Link></BtnPrevious>
+        PreviousBtn = <BtnPrevious><Link to={`/surah/${--pageLink}`}> <Previous color='#868686' variant={props.theme === "dark"? 'Linear' : 'Bold'}/></Link></BtnPrevious>
     }
     let NextBtn;
     // eslint-disable-next-line
     if(id == 114){
         NextBtn = null;
     }else{
-        NextBtn = <BtnNext><Link to={`/surah/${pageLink === (data !== '' ? data?.data[0].number : id) ? pageLink + 1 : pageLink + 2}`}> <Next color='#868686'/></Link></BtnNext>
+        NextBtn = <BtnNext><Link to={`/surah/${pageLink === (data !== '' ? data?.data[0].number : id) ? pageLink + 1 : pageLink + 2}`}> <Next color='#868686' variant={props.theme === "dark"? 'Linear' : 'Bold'}/></Link></BtnNext>
     }
 
     const surahUrl = data !== '' ? (data?.data[0].number.toString().length === 1 ? `${edition}/00${data?.data[0].number}.mp3` : '')||(data?.data[0].number.toString().length === 2 ? `${edition}/0${data?.data[0].number}.mp3` : '')||(data?.data[0].number.toString().length === 3 ? `${edition}/${data?.data[0].number}.mp3` : '') : null
@@ -248,8 +248,8 @@ function QuranPage(props){
                     src={surahUrl}
                     showJumpControls={false}
                     customIcons={{
-                        play: <Play color='#868686' size="32" variant={props.theme === "dark"? 'Linear' : 'Bold'}/>,
-                        pause: <Pause color='#868686' size="32" variant={props.theme === "dark"? 'Linear' : 'Bold'} />,
+                        play: <PlayCircle color='#868686' size="32" variant={props.theme === "dark"? 'Linear' : 'Bold'}/>,
+                        pause: <PauseCircle color='#868686' size="32" variant={props.theme === "dark"? 'Linear' : 'Bold'} />,
                         volume: <VolumeHigh color='#868686'  variant={props.theme === "dark"? 'Linear' : 'Bold'}/>,
                         volumeMute: <VolumeCross color='#868686' variant={props.theme === "dark"? 'Linear' : 'Bold'}/>,
                     }}
