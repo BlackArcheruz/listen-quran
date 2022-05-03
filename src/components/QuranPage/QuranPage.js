@@ -3,7 +3,7 @@ import { Fragment, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import AudioPlayer from 'react-h5-audio-player';
 import { Link } from 'react-router-dom';
-import {Next, Previous, PlayCircle, PauseCircle, VolumeHigh, VolumeCross} from 'iconsax-react'
+import {Next, Previous, Play, Pause, VolumeHigh, VolumeCross} from 'iconsax-react'
 import axios from 'axios'
 import NotFound from '../NotFound/NotFound'
 import { useTranslation } from 'react-i18next';
@@ -248,8 +248,8 @@ function QuranPage(props){
                     src={surahUrl}
                     showJumpControls={false}
                     customIcons={{
-                        play: <PlayCircle color='#868686' size="32" variant={props.theme === "dark"? 'Linear' : 'Bold'}/>,
-                        pause: <PauseCircle color='#868686' size="32" variant={props.theme === "dark"? 'Linear' : 'Bold'} />,
+                        play: <Play color='#868686' size="32"/>,
+                        pause: <Pause color='#868686' size="32" variant={props.theme === "dark"? 'Linear' : 'Bold'} />,
                         volume: <VolumeHigh color='#868686'  variant={props.theme === "dark"? 'Linear' : 'Bold'}/>,
                         volumeMute: <VolumeCross color='#868686' variant={props.theme === "dark"? 'Linear' : 'Bold'}/>,
                     }}
