@@ -3,7 +3,7 @@ import { Fragment, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import AudioPlayer from 'react-h5-audio-player';
 import { Link } from 'react-router-dom';
-import {Next, Previous, PlayCircle, Pause, VolumeHigh, VolumeCross} from 'iconsax-react'
+import {Next, Previous, PlayCircle, PauseCircle, VolumeHigh, VolumeCross} from 'iconsax-react'
 import axios from 'axios'
 import NotFound from '../NotFound/NotFound'
 import { useTranslation } from 'react-i18next';
