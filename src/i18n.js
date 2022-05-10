@@ -50,7 +50,8 @@ const resources = {
       'Taqvim': 'Ramadan almanac',
       'dark': 'Dark',
       'light': 'Light',
-      'theme': 'Choose Theme:'
+      'theme': 'Choose Theme:',
+      'donate': 'Donate'
     }
   },
   uz: {
@@ -93,7 +94,8 @@ const resources = {
       'Taqvim': 'Ramazon taqvimi',
       'dark': 'Tungi',
       'light': 'Kunduzgi',
-      'theme': 'Mavzuni tanlang:'
+      'theme': 'Mavzuni tanlang:',
+      'donate': 'Donate'
     },
     
   },
@@ -137,7 +139,8 @@ const resources = {
     'Taqvim': 'Рамазон тақвими',
     'dark': 'Тунги',
     'light': 'Кундузги',
-    'theme': 'Мавзуни танланг:'
+    'theme': 'Мавзуни танланг:',
+    'donate': "Донат"
     },
   }
 

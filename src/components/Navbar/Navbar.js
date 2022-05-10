@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {Link} from 'react-router-dom';
 import Logo from '../../Images/logo.png';
 import { stack as Menu } from 'react-burger-menu'
-import {Sun1, Setting2, Moon, ArchiveBook, Award, Barcode, Timer} from "iconsax-react"
+import {Sun1, Setting2, Moon, ArchiveBook, Award, Barcode, Timer, MoneySend} from "iconsax-react"
 import { useTranslation } from 'react-i18next';
 
 function Navbar (props){
@@ -134,6 +134,7 @@ function Navbar (props){
         <Menu right bubble styles={styles} > 
                 <a id="about" className="menu-item" style={{display: "flex",alignItems: "center",justifyContent:'flex-start', margin: "1rem 0", fontWeight: "600", fontSize: "1.15em", color: (props.theme === 'dark' ? "#f1f1f1" : "#121620")}} href="/about"><ArchiveBook variant={props.theme === "dark"? 'Linear' : 'Bold'} color={props.theme === "dark"? "#f1f1f1": "#121620"} style={{marginRight: '5px'}}/>{t('About')}</a>
                 <a id="destination" className="menu-item" style={{display: "flex",alignItems: "center", justifyContent:'flex-start',margin: "1rem 0", fontWeight: "600", fontSize: "1.15em", color: (props.theme === 'dark' ? "#f1f1f1" : "#121620")}} href="/destination"><Award variant={props.theme === "dark"? 'Linear' : 'Bold'} color={props.theme === "dark"? "#f1f1f1": "#121620"} style={{marginRight: '5px'}}/> {t('Destination')}</a>
+                <a id="donate" className="menu-item" style={{display: "flex",alignItems: "center", justifyContent:'flex-start',margin: "1rem 0", fontWeight: "600", fontSize: "1.15em", color: (props.theme === 'dark' ? "#f1f1f1" : "#121620")}} href="https://payme.uz/5f7892db353f23fcb75a8f61"><MoneySend variant={props.theme === "dark"? 'Linear' : 'Bold'} color={props.theme === "dark"? "#f1f1f1": "#121620"} style={{marginRight: '5px'}}/> {t('donate')}</a>
                 <a href="/tasbeh" id="tasbeh" className="menu-item" style={{display: "flex",alignItems: "center", justifyContent:'flex-start', margin: "1rem 0", fontWeight: "600", fontSize: "1.15em", color: (props.theme === 'dark' ? "#f1f1f1" : "#121620")}}><Barcode variant={props.theme === "dark"? 'Linear' : 'Bold'} color={props.theme === "dark"? "#f1f1f1": "#121620"} style={{marginRight: '5px'}}/> {t('tasbeh')}</a> 
                 <a href="https://namozvaqtlari.vercel.app/" id="tasbeh" className="menu-item" style={{display: "flex",alignItems: "center", justifyContent:'flex-start', margin: "1rem 0", fontWeight: "600", fontSize: "1.15em", color: (props.theme === 'dark' ? "#f1f1f1" : "#121620")}}><Timer variant={props.theme === "dark"? 'Linear' : 'Bold'} color={props.theme === "dark"? "#f1f1f1": "#121620"} style={{marginRight: '5px'}}/> {t('namoz')}</a> 
                 <a href="/settings" id="settings" className="menu-item" style={{display: "flex",alignItems: "center", justifyContent:'flex-start', margin: "1rem 0", fontWeight: "600", fontSize: "1.15em", color: (props.theme === 'dark' ? "#f1f1f1" : "#121620")}}><Setting2 variant={props.theme === "dark"? 'Linear' : 'Bold'} color={props.theme === "dark"? "#f1f1f1": "#121620"} style={{marginRight: '5px'}}/> {t('Settings')}</a> 
@@ -145,6 +146,7 @@ function Navbar (props){
             <ul>
                 <li><Link to="/about">{t('About')}</Link></li>
                  <li><Link to="/destination">{t('Destination')}</Link></li>
+                 <li><a href="https://payme.uz/5f7892db353f23fcb75a8f61">{t('donate')}</a></li>
                  <li><button onClick={props.toggleTheme}>{props.theme === "dark" ? <Moon variant="Linear" color="#f1f1f1"/> : <Sun1 variant="Bold" color="#121620"/>}</button></li>
                 <li><Link to="/settings"><Setting2 variant={props.theme === "dark"? 'Linear' : 'Bold'} color={props.theme === "dark"? "#f1f1f1": "#121620"} style={{marginRight: '5px'}}/></Link></li>
             </ul>
