@@ -28,7 +28,7 @@ const resources = {
       "relevation_long_Medinan": 'Revealed in Medinan',
       'language': 'Change Language',
       'who': 'Who are we?',
-      'Desc': `The Listen-Quran project is produced by young Uzbek programmers and currently works only in Arabic-Uzbek, Arabic-English. The project is currently running in <span> Stable </span> <code> 1.0 </code>. Subsequent versions of the project are also being developed by developers. If you want contribute Join our <a href="https://github.com/BlackArcheruz/listen-quran">Github!</a>. *Now We added listen by verses, but we have only Mishary Al Afasy for verses.`,
+      'Desc': `The Listen-Quran project is produced by young Uzbek programmers and currently works only in Arabic-Uzbek, Arabic-English. The project is currently running in <span> Stable </span> <code> 1.0 </code>. Subsequent versions of the project are also being developed by developers. If you want contribute Join our <a href="https://github.com/BlackArcheruz/listen-quran">Github!</a>.`,
       'Destination_desc': `The Listen-Quran project was written by young Uzbek programmers to make it easier to hear the Qur'an and return the love to the Qur'an. Our goal is to return the love of the Qur'an to the Ummah, to make it easier for them to study the interpretations of the Qur'an. The project is not funded by anyone and the goal of the project is not to make money. The main goal of the project is to increase the popularity of Quran recitation.`,
       'NotFound': 'This page doesn\'t exist',
       'Sorry': 'Sorry, that you are searching page is not exist',
